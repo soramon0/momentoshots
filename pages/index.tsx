@@ -3,13 +3,13 @@ import ComingSoon from '../components/ComingSoon';
 
 export default function Home() {
 	return (
-		<div>
+		<div className="h-screen">
 			<Head>
 				<title>Momento Shots</title>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<main>
+			<main className="h-full flex justify-center items-center">
 				<ComingSoon />
 			</main>
 		</div>
