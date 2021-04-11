@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "yarn run generate && next build",
+    "build": "graphql-codegen && next build",
     "start": "next start",
-    "generate": "graphql-codegen"
+    "generate": "NEXT_PUBLIC_GQL_URL=http://localhost:1337/graphql graphql-codegen"
   },
   "dependencies": {
     "@apollo/client": "^3.3.14",
