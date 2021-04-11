@@ -606,6 +606,17 @@
     lodash "~4.17.20"
     tslib "~2.1.0"
 
+"@graphql-codegen/typescript-apollo-client-helpers@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-apollo-client-helpers/-/typescript-apollo-client-helpers-1.1.4.tgz#056044bd7b04cca36a942427ad6e35b545fc78e3"
+  integrity sha512-2aCWxLkUSpJPzlLpdUTnVQGe77FsQb+nqBLz7Vn4vBWKNH8TyDGM4VqhHZbU3zSFDlRYtSsa7b7JVnluD+vsLw==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "^1.18.4"
+    "@graphql-codegen/visitor-plugin-common" "^1.19.1"
+    auto-bind "~4.0.0"
+    change-case-all "1.0.12"
+    tslib "~2.1.0"
+
 "@graphql-codegen/typescript@^1.21.1":
   version "1.21.1"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript/-/typescript-1.21.1.tgz#9bce3254b8ef30a6bf64e57ba3991f9be7a19b53"
@@ -616,7 +627,7 @@
     auto-bind "~4.0.0"
     tslib "~2.1.0"
 
-"@graphql-codegen/visitor-plugin-common@^1.19.0":
+"@graphql-codegen/visitor-plugin-common@^1.19.0", "@graphql-codegen/visitor-plugin-common@^1.19.1":
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-1.19.1.tgz#2584588351a343a2ad8cd76dde62eb2ec25abe18"
   integrity sha512-MJZXe5vXxV6PLOgHhQoz93gnjzJtbnVQXQKqVEcbyB9W8ImoKuTHsEf/eJ6yCL79f7X/2dnOOM84d5Osh1eaKg==

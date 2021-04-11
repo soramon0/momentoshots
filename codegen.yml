@@ -3,3 +3,6 @@ generates:
   ./graphql/types.d.ts:
     plugins:
       - typescript
+      - typescript-apollo-client-helpers
+    config:
+      useTypeImports: true

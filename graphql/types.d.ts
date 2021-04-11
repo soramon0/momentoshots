@@ -1,3 +1,4 @@
+import type { FieldPolicy, FieldReadFunction, TypePolicies, TypePolicy } from '@apollo/client/cache';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
@@ -1185,4 +1186,969 @@ export type UpdateUserInput = {
 export type UpdateUserPayload = {
   __typename?: 'updateUserPayload';
   user?: Maybe<UsersPermissionsUser>;
+};
+
+export type AdminUserKeySpecifier = ('id' | 'username' | 'firstname' | 'lastname' | AdminUserKeySpecifier)[];
+export type AdminUserFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	username?: FieldPolicy<any> | FieldReadFunction<any>,
+	firstname?: FieldPolicy<any> | FieldReadFunction<any>,
+	lastname?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CollectionKeySpecifier = ('id' | '_id' | 'createdAt' | 'updatedAt' | 'name' | 'headerImage' | 'published_at' | 'items' | CollectionKeySpecifier)[];
+export type CollectionFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	_id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	name?: FieldPolicy<any> | FieldReadFunction<any>,
+	headerImage?: FieldPolicy<any> | FieldReadFunction<any>,
+	published_at?: FieldPolicy<any> | FieldReadFunction<any>,
+	items?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CollectionAggregatorKeySpecifier = ('count' | 'totalCount' | CollectionAggregatorKeySpecifier)[];
+export type CollectionAggregatorFieldPolicy = {
+	count?: FieldPolicy<any> | FieldReadFunction<any>,
+	totalCount?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CollectionConnectionKeySpecifier = ('values' | 'groupBy' | 'aggregate' | CollectionConnectionKeySpecifier)[];
+export type CollectionConnectionFieldPolicy = {
+	values?: FieldPolicy<any> | FieldReadFunction<any>,
+	groupBy?: FieldPolicy<any> | FieldReadFunction<any>,
+	aggregate?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CollectionConnectionCreatedAtKeySpecifier = ('key' | 'connection' | CollectionConnectionCreatedAtKeySpecifier)[];
+export type CollectionConnectionCreatedAtFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CollectionConnectionHeaderImageKeySpecifier = ('key' | 'connection' | CollectionConnectionHeaderImageKeySpecifier)[];
+export type CollectionConnectionHeaderImageFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CollectionConnectionIdKeySpecifier = ('key' | 'connection' | CollectionConnectionIdKeySpecifier)[];
+export type CollectionConnectionIdFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CollectionConnectionNameKeySpecifier = ('key' | 'connection' | CollectionConnectionNameKeySpecifier)[];
+export type CollectionConnectionNameFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CollectionConnectionPublished_atKeySpecifier = ('key' | 'connection' | CollectionConnectionPublished_atKeySpecifier)[];
+export type CollectionConnectionPublished_atFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CollectionConnectionUpdatedAtKeySpecifier = ('key' | 'connection' | CollectionConnectionUpdatedAtKeySpecifier)[];
+export type CollectionConnectionUpdatedAtFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CollectionConnection_idKeySpecifier = ('key' | 'connection' | CollectionConnection_idKeySpecifier)[];
+export type CollectionConnection_idFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CollectionGroupByKeySpecifier = ('id' | '_id' | 'createdAt' | 'updatedAt' | 'name' | 'headerImage' | 'published_at' | CollectionGroupByKeySpecifier)[];
+export type CollectionGroupByFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	_id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	name?: FieldPolicy<any> | FieldReadFunction<any>,
+	headerImage?: FieldPolicy<any> | FieldReadFunction<any>,
+	published_at?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ItemKeySpecifier = ('id' | '_id' | 'createdAt' | 'updatedAt' | 'image' | 'highlight' | 'belongsTo' | 'published_at' | ItemKeySpecifier)[];
+export type ItemFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	_id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	image?: FieldPolicy<any> | FieldReadFunction<any>,
+	highlight?: FieldPolicy<any> | FieldReadFunction<any>,
+	belongsTo?: FieldPolicy<any> | FieldReadFunction<any>,
+	published_at?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ItemAggregatorKeySpecifier = ('count' | 'totalCount' | ItemAggregatorKeySpecifier)[];
+export type ItemAggregatorFieldPolicy = {
+	count?: FieldPolicy<any> | FieldReadFunction<any>,
+	totalCount?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ItemConnectionKeySpecifier = ('values' | 'groupBy' | 'aggregate' | ItemConnectionKeySpecifier)[];
+export type ItemConnectionFieldPolicy = {
+	values?: FieldPolicy<any> | FieldReadFunction<any>,
+	groupBy?: FieldPolicy<any> | FieldReadFunction<any>,
+	aggregate?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ItemConnectionBelongsToKeySpecifier = ('key' | 'connection' | ItemConnectionBelongsToKeySpecifier)[];
+export type ItemConnectionBelongsToFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ItemConnectionCreatedAtKeySpecifier = ('key' | 'connection' | ItemConnectionCreatedAtKeySpecifier)[];
+export type ItemConnectionCreatedAtFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ItemConnectionHighlightKeySpecifier = ('key' | 'connection' | ItemConnectionHighlightKeySpecifier)[];
+export type ItemConnectionHighlightFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ItemConnectionIdKeySpecifier = ('key' | 'connection' | ItemConnectionIdKeySpecifier)[];
+export type ItemConnectionIdFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ItemConnectionImageKeySpecifier = ('key' | 'connection' | ItemConnectionImageKeySpecifier)[];
+export type ItemConnectionImageFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ItemConnectionPublished_atKeySpecifier = ('key' | 'connection' | ItemConnectionPublished_atKeySpecifier)[];
+export type ItemConnectionPublished_atFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ItemConnectionUpdatedAtKeySpecifier = ('key' | 'connection' | ItemConnectionUpdatedAtKeySpecifier)[];
+export type ItemConnectionUpdatedAtFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ItemConnection_idKeySpecifier = ('key' | 'connection' | ItemConnection_idKeySpecifier)[];
+export type ItemConnection_idFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ItemGroupByKeySpecifier = ('id' | '_id' | 'createdAt' | 'updatedAt' | 'image' | 'highlight' | 'belongsTo' | 'published_at' | ItemGroupByKeySpecifier)[];
+export type ItemGroupByFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	_id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	image?: FieldPolicy<any> | FieldReadFunction<any>,
+	highlight?: FieldPolicy<any> | FieldReadFunction<any>,
+	belongsTo?: FieldPolicy<any> | FieldReadFunction<any>,
+	published_at?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type MutationKeySpecifier = ('createCollection' | 'updateCollection' | 'deleteCollection' | 'createItem' | 'updateItem' | 'deleteItem' | 'deleteFile' | 'createRole' | 'updateRole' | 'deleteRole' | 'createUser' | 'updateUser' | 'deleteUser' | 'upload' | 'multipleUpload' | 'updateFileInfo' | 'login' | 'register' | 'forgotPassword' | 'resetPassword' | 'emailConfirmation' | MutationKeySpecifier)[];
+export type MutationFieldPolicy = {
+	createCollection?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateCollection?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteCollection?: FieldPolicy<any> | FieldReadFunction<any>,
+	createItem?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateItem?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteItem?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteFile?: FieldPolicy<any> | FieldReadFunction<any>,
+	createRole?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateRole?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteRole?: FieldPolicy<any> | FieldReadFunction<any>,
+	createUser?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateUser?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteUser?: FieldPolicy<any> | FieldReadFunction<any>,
+	upload?: FieldPolicy<any> | FieldReadFunction<any>,
+	multipleUpload?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateFileInfo?: FieldPolicy<any> | FieldReadFunction<any>,
+	login?: FieldPolicy<any> | FieldReadFunction<any>,
+	register?: FieldPolicy<any> | FieldReadFunction<any>,
+	forgotPassword?: FieldPolicy<any> | FieldReadFunction<any>,
+	resetPassword?: FieldPolicy<any> | FieldReadFunction<any>,
+	emailConfirmation?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type QueryKeySpecifier = ('collection' | 'collections' | 'collectionsConnection' | 'item' | 'items' | 'itemsConnection' | 'files' | 'filesConnection' | 'role' | 'roles' | 'rolesConnection' | 'user' | 'users' | 'usersConnection' | 'me' | QueryKeySpecifier)[];
+export type QueryFieldPolicy = {
+	collection?: FieldPolicy<any> | FieldReadFunction<any>,
+	collections?: FieldPolicy<any> | FieldReadFunction<any>,
+	collectionsConnection?: FieldPolicy<any> | FieldReadFunction<any>,
+	item?: FieldPolicy<any> | FieldReadFunction<any>,
+	items?: FieldPolicy<any> | FieldReadFunction<any>,
+	itemsConnection?: FieldPolicy<any> | FieldReadFunction<any>,
+	files?: FieldPolicy<any> | FieldReadFunction<any>,
+	filesConnection?: FieldPolicy<any> | FieldReadFunction<any>,
+	role?: FieldPolicy<any> | FieldReadFunction<any>,
+	roles?: FieldPolicy<any> | FieldReadFunction<any>,
+	rolesConnection?: FieldPolicy<any> | FieldReadFunction<any>,
+	user?: FieldPolicy<any> | FieldReadFunction<any>,
+	users?: FieldPolicy<any> | FieldReadFunction<any>,
+	usersConnection?: FieldPolicy<any> | FieldReadFunction<any>,
+	me?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileKeySpecifier = ('id' | '_id' | 'createdAt' | 'updatedAt' | 'name' | 'alternativeText' | 'caption' | 'width' | 'height' | 'formats' | 'hash' | 'ext' | 'mime' | 'size' | 'url' | 'previewUrl' | 'provider' | 'provider_metadata' | 'related' | UploadFileKeySpecifier)[];
+export type UploadFileFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	_id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	name?: FieldPolicy<any> | FieldReadFunction<any>,
+	alternativeText?: FieldPolicy<any> | FieldReadFunction<any>,
+	caption?: FieldPolicy<any> | FieldReadFunction<any>,
+	width?: FieldPolicy<any> | FieldReadFunction<any>,
+	height?: FieldPolicy<any> | FieldReadFunction<any>,
+	formats?: FieldPolicy<any> | FieldReadFunction<any>,
+	hash?: FieldPolicy<any> | FieldReadFunction<any>,
+	ext?: FieldPolicy<any> | FieldReadFunction<any>,
+	mime?: FieldPolicy<any> | FieldReadFunction<any>,
+	size?: FieldPolicy<any> | FieldReadFunction<any>,
+	url?: FieldPolicy<any> | FieldReadFunction<any>,
+	previewUrl?: FieldPolicy<any> | FieldReadFunction<any>,
+	provider?: FieldPolicy<any> | FieldReadFunction<any>,
+	provider_metadata?: FieldPolicy<any> | FieldReadFunction<any>,
+	related?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileAggregatorKeySpecifier = ('count' | 'totalCount' | 'sum' | 'avg' | 'min' | 'max' | UploadFileAggregatorKeySpecifier)[];
+export type UploadFileAggregatorFieldPolicy = {
+	count?: FieldPolicy<any> | FieldReadFunction<any>,
+	totalCount?: FieldPolicy<any> | FieldReadFunction<any>,
+	sum?: FieldPolicy<any> | FieldReadFunction<any>,
+	avg?: FieldPolicy<any> | FieldReadFunction<any>,
+	min?: FieldPolicy<any> | FieldReadFunction<any>,
+	max?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileAggregatorAvgKeySpecifier = ('width' | 'height' | 'size' | UploadFileAggregatorAvgKeySpecifier)[];
+export type UploadFileAggregatorAvgFieldPolicy = {
+	width?: FieldPolicy<any> | FieldReadFunction<any>,
+	height?: FieldPolicy<any> | FieldReadFunction<any>,
+	size?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileAggregatorMaxKeySpecifier = ('width' | 'height' | 'size' | UploadFileAggregatorMaxKeySpecifier)[];
+export type UploadFileAggregatorMaxFieldPolicy = {
+	width?: FieldPolicy<any> | FieldReadFunction<any>,
+	height?: FieldPolicy<any> | FieldReadFunction<any>,
+	size?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileAggregatorMinKeySpecifier = ('width' | 'height' | 'size' | UploadFileAggregatorMinKeySpecifier)[];
+export type UploadFileAggregatorMinFieldPolicy = {
+	width?: FieldPolicy<any> | FieldReadFunction<any>,
+	height?: FieldPolicy<any> | FieldReadFunction<any>,
+	size?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileAggregatorSumKeySpecifier = ('width' | 'height' | 'size' | UploadFileAggregatorSumKeySpecifier)[];
+export type UploadFileAggregatorSumFieldPolicy = {
+	width?: FieldPolicy<any> | FieldReadFunction<any>,
+	height?: FieldPolicy<any> | FieldReadFunction<any>,
+	size?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionKeySpecifier = ('values' | 'groupBy' | 'aggregate' | UploadFileConnectionKeySpecifier)[];
+export type UploadFileConnectionFieldPolicy = {
+	values?: FieldPolicy<any> | FieldReadFunction<any>,
+	groupBy?: FieldPolicy<any> | FieldReadFunction<any>,
+	aggregate?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionAlternativeTextKeySpecifier = ('key' | 'connection' | UploadFileConnectionAlternativeTextKeySpecifier)[];
+export type UploadFileConnectionAlternativeTextFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionCaptionKeySpecifier = ('key' | 'connection' | UploadFileConnectionCaptionKeySpecifier)[];
+export type UploadFileConnectionCaptionFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionCreatedAtKeySpecifier = ('key' | 'connection' | UploadFileConnectionCreatedAtKeySpecifier)[];
+export type UploadFileConnectionCreatedAtFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionExtKeySpecifier = ('key' | 'connection' | UploadFileConnectionExtKeySpecifier)[];
+export type UploadFileConnectionExtFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionFormatsKeySpecifier = ('key' | 'connection' | UploadFileConnectionFormatsKeySpecifier)[];
+export type UploadFileConnectionFormatsFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionHashKeySpecifier = ('key' | 'connection' | UploadFileConnectionHashKeySpecifier)[];
+export type UploadFileConnectionHashFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionHeightKeySpecifier = ('key' | 'connection' | UploadFileConnectionHeightKeySpecifier)[];
+export type UploadFileConnectionHeightFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionIdKeySpecifier = ('key' | 'connection' | UploadFileConnectionIdKeySpecifier)[];
+export type UploadFileConnectionIdFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionMimeKeySpecifier = ('key' | 'connection' | UploadFileConnectionMimeKeySpecifier)[];
+export type UploadFileConnectionMimeFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionNameKeySpecifier = ('key' | 'connection' | UploadFileConnectionNameKeySpecifier)[];
+export type UploadFileConnectionNameFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionPreviewUrlKeySpecifier = ('key' | 'connection' | UploadFileConnectionPreviewUrlKeySpecifier)[];
+export type UploadFileConnectionPreviewUrlFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionProviderKeySpecifier = ('key' | 'connection' | UploadFileConnectionProviderKeySpecifier)[];
+export type UploadFileConnectionProviderFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionProvider_metadataKeySpecifier = ('key' | 'connection' | UploadFileConnectionProvider_metadataKeySpecifier)[];
+export type UploadFileConnectionProvider_metadataFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionSizeKeySpecifier = ('key' | 'connection' | UploadFileConnectionSizeKeySpecifier)[];
+export type UploadFileConnectionSizeFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionUpdatedAtKeySpecifier = ('key' | 'connection' | UploadFileConnectionUpdatedAtKeySpecifier)[];
+export type UploadFileConnectionUpdatedAtFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionUrlKeySpecifier = ('key' | 'connection' | UploadFileConnectionUrlKeySpecifier)[];
+export type UploadFileConnectionUrlFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnectionWidthKeySpecifier = ('key' | 'connection' | UploadFileConnectionWidthKeySpecifier)[];
+export type UploadFileConnectionWidthFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileConnection_idKeySpecifier = ('key' | 'connection' | UploadFileConnection_idKeySpecifier)[];
+export type UploadFileConnection_idFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UploadFileGroupByKeySpecifier = ('id' | '_id' | 'createdAt' | 'updatedAt' | 'name' | 'alternativeText' | 'caption' | 'width' | 'height' | 'formats' | 'hash' | 'ext' | 'mime' | 'size' | 'url' | 'previewUrl' | 'provider' | 'provider_metadata' | UploadFileGroupByKeySpecifier)[];
+export type UploadFileGroupByFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	_id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	name?: FieldPolicy<any> | FieldReadFunction<any>,
+	alternativeText?: FieldPolicy<any> | FieldReadFunction<any>,
+	caption?: FieldPolicy<any> | FieldReadFunction<any>,
+	width?: FieldPolicy<any> | FieldReadFunction<any>,
+	height?: FieldPolicy<any> | FieldReadFunction<any>,
+	formats?: FieldPolicy<any> | FieldReadFunction<any>,
+	hash?: FieldPolicy<any> | FieldReadFunction<any>,
+	ext?: FieldPolicy<any> | FieldReadFunction<any>,
+	mime?: FieldPolicy<any> | FieldReadFunction<any>,
+	size?: FieldPolicy<any> | FieldReadFunction<any>,
+	url?: FieldPolicy<any> | FieldReadFunction<any>,
+	previewUrl?: FieldPolicy<any> | FieldReadFunction<any>,
+	provider?: FieldPolicy<any> | FieldReadFunction<any>,
+	provider_metadata?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UserPermissionsPasswordPayloadKeySpecifier = ('ok' | UserPermissionsPasswordPayloadKeySpecifier)[];
+export type UserPermissionsPasswordPayloadFieldPolicy = {
+	ok?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsLoginPayloadKeySpecifier = ('jwt' | 'user' | UsersPermissionsLoginPayloadKeySpecifier)[];
+export type UsersPermissionsLoginPayloadFieldPolicy = {
+	jwt?: FieldPolicy<any> | FieldReadFunction<any>,
+	user?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsMeKeySpecifier = ('id' | 'username' | 'email' | 'confirmed' | 'blocked' | 'role' | UsersPermissionsMeKeySpecifier)[];
+export type UsersPermissionsMeFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	username?: FieldPolicy<any> | FieldReadFunction<any>,
+	email?: FieldPolicy<any> | FieldReadFunction<any>,
+	confirmed?: FieldPolicy<any> | FieldReadFunction<any>,
+	blocked?: FieldPolicy<any> | FieldReadFunction<any>,
+	role?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsMeRoleKeySpecifier = ('id' | 'name' | 'description' | 'type' | UsersPermissionsMeRoleKeySpecifier)[];
+export type UsersPermissionsMeRoleFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	name?: FieldPolicy<any> | FieldReadFunction<any>,
+	description?: FieldPolicy<any> | FieldReadFunction<any>,
+	type?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsPermissionKeySpecifier = ('id' | '_id' | 'type' | 'controller' | 'action' | 'enabled' | 'policy' | 'role' | UsersPermissionsPermissionKeySpecifier)[];
+export type UsersPermissionsPermissionFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	_id?: FieldPolicy<any> | FieldReadFunction<any>,
+	type?: FieldPolicy<any> | FieldReadFunction<any>,
+	controller?: FieldPolicy<any> | FieldReadFunction<any>,
+	action?: FieldPolicy<any> | FieldReadFunction<any>,
+	enabled?: FieldPolicy<any> | FieldReadFunction<any>,
+	policy?: FieldPolicy<any> | FieldReadFunction<any>,
+	role?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsRoleKeySpecifier = ('id' | '_id' | 'name' | 'description' | 'type' | 'permissions' | 'users' | UsersPermissionsRoleKeySpecifier)[];
+export type UsersPermissionsRoleFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	_id?: FieldPolicy<any> | FieldReadFunction<any>,
+	name?: FieldPolicy<any> | FieldReadFunction<any>,
+	description?: FieldPolicy<any> | FieldReadFunction<any>,
+	type?: FieldPolicy<any> | FieldReadFunction<any>,
+	permissions?: FieldPolicy<any> | FieldReadFunction<any>,
+	users?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsRoleAggregatorKeySpecifier = ('count' | 'totalCount' | UsersPermissionsRoleAggregatorKeySpecifier)[];
+export type UsersPermissionsRoleAggregatorFieldPolicy = {
+	count?: FieldPolicy<any> | FieldReadFunction<any>,
+	totalCount?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsRoleConnectionKeySpecifier = ('values' | 'groupBy' | 'aggregate' | UsersPermissionsRoleConnectionKeySpecifier)[];
+export type UsersPermissionsRoleConnectionFieldPolicy = {
+	values?: FieldPolicy<any> | FieldReadFunction<any>,
+	groupBy?: FieldPolicy<any> | FieldReadFunction<any>,
+	aggregate?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsRoleConnectionDescriptionKeySpecifier = ('key' | 'connection' | UsersPermissionsRoleConnectionDescriptionKeySpecifier)[];
+export type UsersPermissionsRoleConnectionDescriptionFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsRoleConnectionIdKeySpecifier = ('key' | 'connection' | UsersPermissionsRoleConnectionIdKeySpecifier)[];
+export type UsersPermissionsRoleConnectionIdFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsRoleConnectionNameKeySpecifier = ('key' | 'connection' | UsersPermissionsRoleConnectionNameKeySpecifier)[];
+export type UsersPermissionsRoleConnectionNameFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsRoleConnectionTypeKeySpecifier = ('key' | 'connection' | UsersPermissionsRoleConnectionTypeKeySpecifier)[];
+export type UsersPermissionsRoleConnectionTypeFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsRoleConnection_idKeySpecifier = ('key' | 'connection' | UsersPermissionsRoleConnection_idKeySpecifier)[];
+export type UsersPermissionsRoleConnection_idFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsRoleGroupByKeySpecifier = ('id' | '_id' | 'name' | 'description' | 'type' | UsersPermissionsRoleGroupByKeySpecifier)[];
+export type UsersPermissionsRoleGroupByFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	_id?: FieldPolicy<any> | FieldReadFunction<any>,
+	name?: FieldPolicy<any> | FieldReadFunction<any>,
+	description?: FieldPolicy<any> | FieldReadFunction<any>,
+	type?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserKeySpecifier = ('id' | '_id' | 'createdAt' | 'updatedAt' | 'username' | 'email' | 'provider' | 'confirmed' | 'blocked' | 'role' | UsersPermissionsUserKeySpecifier)[];
+export type UsersPermissionsUserFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	_id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	username?: FieldPolicy<any> | FieldReadFunction<any>,
+	email?: FieldPolicy<any> | FieldReadFunction<any>,
+	provider?: FieldPolicy<any> | FieldReadFunction<any>,
+	confirmed?: FieldPolicy<any> | FieldReadFunction<any>,
+	blocked?: FieldPolicy<any> | FieldReadFunction<any>,
+	role?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserAggregatorKeySpecifier = ('count' | 'totalCount' | UsersPermissionsUserAggregatorKeySpecifier)[];
+export type UsersPermissionsUserAggregatorFieldPolicy = {
+	count?: FieldPolicy<any> | FieldReadFunction<any>,
+	totalCount?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserConnectionKeySpecifier = ('values' | 'groupBy' | 'aggregate' | UsersPermissionsUserConnectionKeySpecifier)[];
+export type UsersPermissionsUserConnectionFieldPolicy = {
+	values?: FieldPolicy<any> | FieldReadFunction<any>,
+	groupBy?: FieldPolicy<any> | FieldReadFunction<any>,
+	aggregate?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserConnectionBlockedKeySpecifier = ('key' | 'connection' | UsersPermissionsUserConnectionBlockedKeySpecifier)[];
+export type UsersPermissionsUserConnectionBlockedFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserConnectionConfirmedKeySpecifier = ('key' | 'connection' | UsersPermissionsUserConnectionConfirmedKeySpecifier)[];
+export type UsersPermissionsUserConnectionConfirmedFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserConnectionCreatedAtKeySpecifier = ('key' | 'connection' | UsersPermissionsUserConnectionCreatedAtKeySpecifier)[];
+export type UsersPermissionsUserConnectionCreatedAtFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserConnectionEmailKeySpecifier = ('key' | 'connection' | UsersPermissionsUserConnectionEmailKeySpecifier)[];
+export type UsersPermissionsUserConnectionEmailFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserConnectionIdKeySpecifier = ('key' | 'connection' | UsersPermissionsUserConnectionIdKeySpecifier)[];
+export type UsersPermissionsUserConnectionIdFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserConnectionProviderKeySpecifier = ('key' | 'connection' | UsersPermissionsUserConnectionProviderKeySpecifier)[];
+export type UsersPermissionsUserConnectionProviderFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserConnectionRoleKeySpecifier = ('key' | 'connection' | UsersPermissionsUserConnectionRoleKeySpecifier)[];
+export type UsersPermissionsUserConnectionRoleFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserConnectionUpdatedAtKeySpecifier = ('key' | 'connection' | UsersPermissionsUserConnectionUpdatedAtKeySpecifier)[];
+export type UsersPermissionsUserConnectionUpdatedAtFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserConnectionUsernameKeySpecifier = ('key' | 'connection' | UsersPermissionsUserConnectionUsernameKeySpecifier)[];
+export type UsersPermissionsUserConnectionUsernameFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserConnection_idKeySpecifier = ('key' | 'connection' | UsersPermissionsUserConnection_idKeySpecifier)[];
+export type UsersPermissionsUserConnection_idFieldPolicy = {
+	key?: FieldPolicy<any> | FieldReadFunction<any>,
+	connection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UsersPermissionsUserGroupByKeySpecifier = ('id' | '_id' | 'createdAt' | 'updatedAt' | 'username' | 'email' | 'provider' | 'confirmed' | 'blocked' | 'role' | UsersPermissionsUserGroupByKeySpecifier)[];
+export type UsersPermissionsUserGroupByFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	_id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	username?: FieldPolicy<any> | FieldReadFunction<any>,
+	email?: FieldPolicy<any> | FieldReadFunction<any>,
+	provider?: FieldPolicy<any> | FieldReadFunction<any>,
+	confirmed?: FieldPolicy<any> | FieldReadFunction<any>,
+	blocked?: FieldPolicy<any> | FieldReadFunction<any>,
+	role?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type createCollectionPayloadKeySpecifier = ('collection' | createCollectionPayloadKeySpecifier)[];
+export type createCollectionPayloadFieldPolicy = {
+	collection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type createItemPayloadKeySpecifier = ('item' | createItemPayloadKeySpecifier)[];
+export type createItemPayloadFieldPolicy = {
+	item?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type createRolePayloadKeySpecifier = ('role' | createRolePayloadKeySpecifier)[];
+export type createRolePayloadFieldPolicy = {
+	role?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type createUserPayloadKeySpecifier = ('user' | createUserPayloadKeySpecifier)[];
+export type createUserPayloadFieldPolicy = {
+	user?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type deleteCollectionPayloadKeySpecifier = ('collection' | deleteCollectionPayloadKeySpecifier)[];
+export type deleteCollectionPayloadFieldPolicy = {
+	collection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type deleteFilePayloadKeySpecifier = ('file' | deleteFilePayloadKeySpecifier)[];
+export type deleteFilePayloadFieldPolicy = {
+	file?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type deleteItemPayloadKeySpecifier = ('item' | deleteItemPayloadKeySpecifier)[];
+export type deleteItemPayloadFieldPolicy = {
+	item?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type deleteRolePayloadKeySpecifier = ('role' | deleteRolePayloadKeySpecifier)[];
+export type deleteRolePayloadFieldPolicy = {
+	role?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type deleteUserPayloadKeySpecifier = ('user' | deleteUserPayloadKeySpecifier)[];
+export type deleteUserPayloadFieldPolicy = {
+	user?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type updateCollectionPayloadKeySpecifier = ('collection' | updateCollectionPayloadKeySpecifier)[];
+export type updateCollectionPayloadFieldPolicy = {
+	collection?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type updateItemPayloadKeySpecifier = ('item' | updateItemPayloadKeySpecifier)[];
+export type updateItemPayloadFieldPolicy = {
+	item?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type updateRolePayloadKeySpecifier = ('role' | updateRolePayloadKeySpecifier)[];
+export type updateRolePayloadFieldPolicy = {
+	role?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type updateUserPayloadKeySpecifier = ('user' | updateUserPayloadKeySpecifier)[];
+export type updateUserPayloadFieldPolicy = {
+	user?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type TypedTypePolicies = TypePolicies & {
+	AdminUser?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AdminUserKeySpecifier | (() => undefined | AdminUserKeySpecifier),
+		fields?: AdminUserFieldPolicy,
+	},
+	Collection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CollectionKeySpecifier | (() => undefined | CollectionKeySpecifier),
+		fields?: CollectionFieldPolicy,
+	},
+	CollectionAggregator?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CollectionAggregatorKeySpecifier | (() => undefined | CollectionAggregatorKeySpecifier),
+		fields?: CollectionAggregatorFieldPolicy,
+	},
+	CollectionConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CollectionConnectionKeySpecifier | (() => undefined | CollectionConnectionKeySpecifier),
+		fields?: CollectionConnectionFieldPolicy,
+	},
+	CollectionConnectionCreatedAt?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CollectionConnectionCreatedAtKeySpecifier | (() => undefined | CollectionConnectionCreatedAtKeySpecifier),
+		fields?: CollectionConnectionCreatedAtFieldPolicy,
+	},
+	CollectionConnectionHeaderImage?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CollectionConnectionHeaderImageKeySpecifier | (() => undefined | CollectionConnectionHeaderImageKeySpecifier),
+		fields?: CollectionConnectionHeaderImageFieldPolicy,
+	},
+	CollectionConnectionId?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CollectionConnectionIdKeySpecifier | (() => undefined | CollectionConnectionIdKeySpecifier),
+		fields?: CollectionConnectionIdFieldPolicy,
+	},
+	CollectionConnectionName?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CollectionConnectionNameKeySpecifier | (() => undefined | CollectionConnectionNameKeySpecifier),
+		fields?: CollectionConnectionNameFieldPolicy,
+	},
+	CollectionConnectionPublished_at?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CollectionConnectionPublished_atKeySpecifier | (() => undefined | CollectionConnectionPublished_atKeySpecifier),
+		fields?: CollectionConnectionPublished_atFieldPolicy,
+	},
+	CollectionConnectionUpdatedAt?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CollectionConnectionUpdatedAtKeySpecifier | (() => undefined | CollectionConnectionUpdatedAtKeySpecifier),
+		fields?: CollectionConnectionUpdatedAtFieldPolicy,
+	},
+	CollectionConnection_id?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CollectionConnection_idKeySpecifier | (() => undefined | CollectionConnection_idKeySpecifier),
+		fields?: CollectionConnection_idFieldPolicy,
+	},
+	CollectionGroupBy?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CollectionGroupByKeySpecifier | (() => undefined | CollectionGroupByKeySpecifier),
+		fields?: CollectionGroupByFieldPolicy,
+	},
+	Item?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ItemKeySpecifier | (() => undefined | ItemKeySpecifier),
+		fields?: ItemFieldPolicy,
+	},
+	ItemAggregator?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ItemAggregatorKeySpecifier | (() => undefined | ItemAggregatorKeySpecifier),
+		fields?: ItemAggregatorFieldPolicy,
+	},
+	ItemConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ItemConnectionKeySpecifier | (() => undefined | ItemConnectionKeySpecifier),
+		fields?: ItemConnectionFieldPolicy,
+	},
+	ItemConnectionBelongsTo?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ItemConnectionBelongsToKeySpecifier | (() => undefined | ItemConnectionBelongsToKeySpecifier),
+		fields?: ItemConnectionBelongsToFieldPolicy,
+	},
+	ItemConnectionCreatedAt?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ItemConnectionCreatedAtKeySpecifier | (() => undefined | ItemConnectionCreatedAtKeySpecifier),
+		fields?: ItemConnectionCreatedAtFieldPolicy,
+	},
+	ItemConnectionHighlight?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ItemConnectionHighlightKeySpecifier | (() => undefined | ItemConnectionHighlightKeySpecifier),
+		fields?: ItemConnectionHighlightFieldPolicy,
+	},
+	ItemConnectionId?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ItemConnectionIdKeySpecifier | (() => undefined | ItemConnectionIdKeySpecifier),
+		fields?: ItemConnectionIdFieldPolicy,
+	},
+	ItemConnectionImage?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ItemConnectionImageKeySpecifier | (() => undefined | ItemConnectionImageKeySpecifier),
+		fields?: ItemConnectionImageFieldPolicy,
+	},
+	ItemConnectionPublished_at?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ItemConnectionPublished_atKeySpecifier | (() => undefined | ItemConnectionPublished_atKeySpecifier),
+		fields?: ItemConnectionPublished_atFieldPolicy,
+	},
+	ItemConnectionUpdatedAt?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ItemConnectionUpdatedAtKeySpecifier | (() => undefined | ItemConnectionUpdatedAtKeySpecifier),
+		fields?: ItemConnectionUpdatedAtFieldPolicy,
+	},
+	ItemConnection_id?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ItemConnection_idKeySpecifier | (() => undefined | ItemConnection_idKeySpecifier),
+		fields?: ItemConnection_idFieldPolicy,
+	},
+	ItemGroupBy?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ItemGroupByKeySpecifier | (() => undefined | ItemGroupByKeySpecifier),
+		fields?: ItemGroupByFieldPolicy,
+	},
+	Mutation?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | MutationKeySpecifier | (() => undefined | MutationKeySpecifier),
+		fields?: MutationFieldPolicy,
+	},
+	Query?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | QueryKeySpecifier | (() => undefined | QueryKeySpecifier),
+		fields?: QueryFieldPolicy,
+	},
+	UploadFile?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileKeySpecifier | (() => undefined | UploadFileKeySpecifier),
+		fields?: UploadFileFieldPolicy,
+	},
+	UploadFileAggregator?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileAggregatorKeySpecifier | (() => undefined | UploadFileAggregatorKeySpecifier),
+		fields?: UploadFileAggregatorFieldPolicy,
+	},
+	UploadFileAggregatorAvg?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileAggregatorAvgKeySpecifier | (() => undefined | UploadFileAggregatorAvgKeySpecifier),
+		fields?: UploadFileAggregatorAvgFieldPolicy,
+	},
+	UploadFileAggregatorMax?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileAggregatorMaxKeySpecifier | (() => undefined | UploadFileAggregatorMaxKeySpecifier),
+		fields?: UploadFileAggregatorMaxFieldPolicy,
+	},
+	UploadFileAggregatorMin?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileAggregatorMinKeySpecifier | (() => undefined | UploadFileAggregatorMinKeySpecifier),
+		fields?: UploadFileAggregatorMinFieldPolicy,
+	},
+	UploadFileAggregatorSum?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileAggregatorSumKeySpecifier | (() => undefined | UploadFileAggregatorSumKeySpecifier),
+		fields?: UploadFileAggregatorSumFieldPolicy,
+	},
+	UploadFileConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionKeySpecifier | (() => undefined | UploadFileConnectionKeySpecifier),
+		fields?: UploadFileConnectionFieldPolicy,
+	},
+	UploadFileConnectionAlternativeText?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionAlternativeTextKeySpecifier | (() => undefined | UploadFileConnectionAlternativeTextKeySpecifier),
+		fields?: UploadFileConnectionAlternativeTextFieldPolicy,
+	},
+	UploadFileConnectionCaption?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionCaptionKeySpecifier | (() => undefined | UploadFileConnectionCaptionKeySpecifier),
+		fields?: UploadFileConnectionCaptionFieldPolicy,
+	},
+	UploadFileConnectionCreatedAt?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionCreatedAtKeySpecifier | (() => undefined | UploadFileConnectionCreatedAtKeySpecifier),
+		fields?: UploadFileConnectionCreatedAtFieldPolicy,
+	},
+	UploadFileConnectionExt?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionExtKeySpecifier | (() => undefined | UploadFileConnectionExtKeySpecifier),
+		fields?: UploadFileConnectionExtFieldPolicy,
+	},
+	UploadFileConnectionFormats?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionFormatsKeySpecifier | (() => undefined | UploadFileConnectionFormatsKeySpecifier),
+		fields?: UploadFileConnectionFormatsFieldPolicy,
+	},
+	UploadFileConnectionHash?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionHashKeySpecifier | (() => undefined | UploadFileConnectionHashKeySpecifier),
+		fields?: UploadFileConnectionHashFieldPolicy,
+	},
+	UploadFileConnectionHeight?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionHeightKeySpecifier | (() => undefined | UploadFileConnectionHeightKeySpecifier),
+		fields?: UploadFileConnectionHeightFieldPolicy,
+	},
+	UploadFileConnectionId?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionIdKeySpecifier | (() => undefined | UploadFileConnectionIdKeySpecifier),
+		fields?: UploadFileConnectionIdFieldPolicy,
+	},
+	UploadFileConnectionMime?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionMimeKeySpecifier | (() => undefined | UploadFileConnectionMimeKeySpecifier),
+		fields?: UploadFileConnectionMimeFieldPolicy,
+	},
+	UploadFileConnectionName?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionNameKeySpecifier | (() => undefined | UploadFileConnectionNameKeySpecifier),
+		fields?: UploadFileConnectionNameFieldPolicy,
+	},
+	UploadFileConnectionPreviewUrl?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionPreviewUrlKeySpecifier | (() => undefined | UploadFileConnectionPreviewUrlKeySpecifier),
+		fields?: UploadFileConnectionPreviewUrlFieldPolicy,
+	},
+	UploadFileConnectionProvider?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionProviderKeySpecifier | (() => undefined | UploadFileConnectionProviderKeySpecifier),
+		fields?: UploadFileConnectionProviderFieldPolicy,
+	},
+	UploadFileConnectionProvider_metadata?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionProvider_metadataKeySpecifier | (() => undefined | UploadFileConnectionProvider_metadataKeySpecifier),
+		fields?: UploadFileConnectionProvider_metadataFieldPolicy,
+	},
+	UploadFileConnectionSize?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionSizeKeySpecifier | (() => undefined | UploadFileConnectionSizeKeySpecifier),
+		fields?: UploadFileConnectionSizeFieldPolicy,
+	},
+	UploadFileConnectionUpdatedAt?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionUpdatedAtKeySpecifier | (() => undefined | UploadFileConnectionUpdatedAtKeySpecifier),
+		fields?: UploadFileConnectionUpdatedAtFieldPolicy,
+	},
+	UploadFileConnectionUrl?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionUrlKeySpecifier | (() => undefined | UploadFileConnectionUrlKeySpecifier),
+		fields?: UploadFileConnectionUrlFieldPolicy,
+	},
+	UploadFileConnectionWidth?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnectionWidthKeySpecifier | (() => undefined | UploadFileConnectionWidthKeySpecifier),
+		fields?: UploadFileConnectionWidthFieldPolicy,
+	},
+	UploadFileConnection_id?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileConnection_idKeySpecifier | (() => undefined | UploadFileConnection_idKeySpecifier),
+		fields?: UploadFileConnection_idFieldPolicy,
+	},
+	UploadFileGroupBy?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UploadFileGroupByKeySpecifier | (() => undefined | UploadFileGroupByKeySpecifier),
+		fields?: UploadFileGroupByFieldPolicy,
+	},
+	UserPermissionsPasswordPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserPermissionsPasswordPayloadKeySpecifier | (() => undefined | UserPermissionsPasswordPayloadKeySpecifier),
+		fields?: UserPermissionsPasswordPayloadFieldPolicy,
+	},
+	UsersPermissionsLoginPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsLoginPayloadKeySpecifier | (() => undefined | UsersPermissionsLoginPayloadKeySpecifier),
+		fields?: UsersPermissionsLoginPayloadFieldPolicy,
+	},
+	UsersPermissionsMe?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsMeKeySpecifier | (() => undefined | UsersPermissionsMeKeySpecifier),
+		fields?: UsersPermissionsMeFieldPolicy,
+	},
+	UsersPermissionsMeRole?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsMeRoleKeySpecifier | (() => undefined | UsersPermissionsMeRoleKeySpecifier),
+		fields?: UsersPermissionsMeRoleFieldPolicy,
+	},
+	UsersPermissionsPermission?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsPermissionKeySpecifier | (() => undefined | UsersPermissionsPermissionKeySpecifier),
+		fields?: UsersPermissionsPermissionFieldPolicy,
+	},
+	UsersPermissionsRole?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsRoleKeySpecifier | (() => undefined | UsersPermissionsRoleKeySpecifier),
+		fields?: UsersPermissionsRoleFieldPolicy,
+	},
+	UsersPermissionsRoleAggregator?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsRoleAggregatorKeySpecifier | (() => undefined | UsersPermissionsRoleAggregatorKeySpecifier),
+		fields?: UsersPermissionsRoleAggregatorFieldPolicy,
+	},
+	UsersPermissionsRoleConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsRoleConnectionKeySpecifier | (() => undefined | UsersPermissionsRoleConnectionKeySpecifier),
+		fields?: UsersPermissionsRoleConnectionFieldPolicy,
+	},
+	UsersPermissionsRoleConnectionDescription?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsRoleConnectionDescriptionKeySpecifier | (() => undefined | UsersPermissionsRoleConnectionDescriptionKeySpecifier),
+		fields?: UsersPermissionsRoleConnectionDescriptionFieldPolicy,
+	},
+	UsersPermissionsRoleConnectionId?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsRoleConnectionIdKeySpecifier | (() => undefined | UsersPermissionsRoleConnectionIdKeySpecifier),
+		fields?: UsersPermissionsRoleConnectionIdFieldPolicy,
+	},
+	UsersPermissionsRoleConnectionName?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsRoleConnectionNameKeySpecifier | (() => undefined | UsersPermissionsRoleConnectionNameKeySpecifier),
+		fields?: UsersPermissionsRoleConnectionNameFieldPolicy,
+	},
+	UsersPermissionsRoleConnectionType?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsRoleConnectionTypeKeySpecifier | (() => undefined | UsersPermissionsRoleConnectionTypeKeySpecifier),
+		fields?: UsersPermissionsRoleConnectionTypeFieldPolicy,
+	},
+	UsersPermissionsRoleConnection_id?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsRoleConnection_idKeySpecifier | (() => undefined | UsersPermissionsRoleConnection_idKeySpecifier),
+		fields?: UsersPermissionsRoleConnection_idFieldPolicy,
+	},
+	UsersPermissionsRoleGroupBy?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsRoleGroupByKeySpecifier | (() => undefined | UsersPermissionsRoleGroupByKeySpecifier),
+		fields?: UsersPermissionsRoleGroupByFieldPolicy,
+	},
+	UsersPermissionsUser?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserKeySpecifier | (() => undefined | UsersPermissionsUserKeySpecifier),
+		fields?: UsersPermissionsUserFieldPolicy,
+	},
+	UsersPermissionsUserAggregator?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserAggregatorKeySpecifier | (() => undefined | UsersPermissionsUserAggregatorKeySpecifier),
+		fields?: UsersPermissionsUserAggregatorFieldPolicy,
+	},
+	UsersPermissionsUserConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserConnectionKeySpecifier | (() => undefined | UsersPermissionsUserConnectionKeySpecifier),
+		fields?: UsersPermissionsUserConnectionFieldPolicy,
+	},
+	UsersPermissionsUserConnectionBlocked?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserConnectionBlockedKeySpecifier | (() => undefined | UsersPermissionsUserConnectionBlockedKeySpecifier),
+		fields?: UsersPermissionsUserConnectionBlockedFieldPolicy,
+	},
+	UsersPermissionsUserConnectionConfirmed?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserConnectionConfirmedKeySpecifier | (() => undefined | UsersPermissionsUserConnectionConfirmedKeySpecifier),
+		fields?: UsersPermissionsUserConnectionConfirmedFieldPolicy,
+	},
+	UsersPermissionsUserConnectionCreatedAt?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserConnectionCreatedAtKeySpecifier | (() => undefined | UsersPermissionsUserConnectionCreatedAtKeySpecifier),
+		fields?: UsersPermissionsUserConnectionCreatedAtFieldPolicy,
+	},
+	UsersPermissionsUserConnectionEmail?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserConnectionEmailKeySpecifier | (() => undefined | UsersPermissionsUserConnectionEmailKeySpecifier),
+		fields?: UsersPermissionsUserConnectionEmailFieldPolicy,
+	},
+	UsersPermissionsUserConnectionId?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserConnectionIdKeySpecifier | (() => undefined | UsersPermissionsUserConnectionIdKeySpecifier),
+		fields?: UsersPermissionsUserConnectionIdFieldPolicy,
+	},
+	UsersPermissionsUserConnectionProvider?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserConnectionProviderKeySpecifier | (() => undefined | UsersPermissionsUserConnectionProviderKeySpecifier),
+		fields?: UsersPermissionsUserConnectionProviderFieldPolicy,
+	},
+	UsersPermissionsUserConnectionRole?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserConnectionRoleKeySpecifier | (() => undefined | UsersPermissionsUserConnectionRoleKeySpecifier),
+		fields?: UsersPermissionsUserConnectionRoleFieldPolicy,
+	},
+	UsersPermissionsUserConnectionUpdatedAt?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserConnectionUpdatedAtKeySpecifier | (() => undefined | UsersPermissionsUserConnectionUpdatedAtKeySpecifier),
+		fields?: UsersPermissionsUserConnectionUpdatedAtFieldPolicy,
+	},
+	UsersPermissionsUserConnectionUsername?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserConnectionUsernameKeySpecifier | (() => undefined | UsersPermissionsUserConnectionUsernameKeySpecifier),
+		fields?: UsersPermissionsUserConnectionUsernameFieldPolicy,
+	},
+	UsersPermissionsUserConnection_id?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserConnection_idKeySpecifier | (() => undefined | UsersPermissionsUserConnection_idKeySpecifier),
+		fields?: UsersPermissionsUserConnection_idFieldPolicy,
+	},
+	UsersPermissionsUserGroupBy?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UsersPermissionsUserGroupByKeySpecifier | (() => undefined | UsersPermissionsUserGroupByKeySpecifier),
+		fields?: UsersPermissionsUserGroupByFieldPolicy,
+	},
+	createCollectionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | createCollectionPayloadKeySpecifier | (() => undefined | createCollectionPayloadKeySpecifier),
+		fields?: createCollectionPayloadFieldPolicy,
+	},
+	createItemPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | createItemPayloadKeySpecifier | (() => undefined | createItemPayloadKeySpecifier),
+		fields?: createItemPayloadFieldPolicy,
+	},
+	createRolePayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | createRolePayloadKeySpecifier | (() => undefined | createRolePayloadKeySpecifier),
+		fields?: createRolePayloadFieldPolicy,
+	},
+	createUserPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | createUserPayloadKeySpecifier | (() => undefined | createUserPayloadKeySpecifier),
+		fields?: createUserPayloadFieldPolicy,
+	},
+	deleteCollectionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | deleteCollectionPayloadKeySpecifier | (() => undefined | deleteCollectionPayloadKeySpecifier),
+		fields?: deleteCollectionPayloadFieldPolicy,
+	},
+	deleteFilePayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | deleteFilePayloadKeySpecifier | (() => undefined | deleteFilePayloadKeySpecifier),
+		fields?: deleteFilePayloadFieldPolicy,
+	},
+	deleteItemPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | deleteItemPayloadKeySpecifier | (() => undefined | deleteItemPayloadKeySpecifier),
+		fields?: deleteItemPayloadFieldPolicy,
+	},
+	deleteRolePayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | deleteRolePayloadKeySpecifier | (() => undefined | deleteRolePayloadKeySpecifier),
+		fields?: deleteRolePayloadFieldPolicy,
+	},
+	deleteUserPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | deleteUserPayloadKeySpecifier | (() => undefined | deleteUserPayloadKeySpecifier),
+		fields?: deleteUserPayloadFieldPolicy,
+	},
+	updateCollectionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | updateCollectionPayloadKeySpecifier | (() => undefined | updateCollectionPayloadKeySpecifier),
+		fields?: updateCollectionPayloadFieldPolicy,
+	},
+	updateItemPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | updateItemPayloadKeySpecifier | (() => undefined | updateItemPayloadKeySpecifier),
+		fields?: updateItemPayloadFieldPolicy,
+	},
+	updateRolePayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | updateRolePayloadKeySpecifier | (() => undefined | updateRolePayloadKeySpecifier),
+		fields?: updateRolePayloadFieldPolicy,
+	},
+	updateUserPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | updateUserPayloadKeySpecifier | (() => undefined | updateUserPayloadKeySpecifier),
+		fields?: updateUserPayloadFieldPolicy,
+	}
 };
