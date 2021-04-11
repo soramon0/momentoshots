@@ -3,15 +3,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import type { Collection } from '@/graphql/types';
-import { collectionFind } from '@/graphql/queries/collection';
-import { addApolloState, initializeApollo } from '@/lib/apolloClient';
+import type { PageGetCollectionsComp } from '@/graphql/generated/page';
+import { ssrGetCollections } from '@/graphql/generated/page';
 
-type Props = {
-  collections: Collection[];
-};
-
-export default function HomePage({ collections }: Props) {
+const HomePage: PageGetCollectionsComp = ({ data }) => {
   return (
     <main className='bg-gray-100'>
       <Head>
@@ -23,12 +18,13 @@ export default function HomePage({ collections }: Props) {
       </div>
 
       <section className='flex justify-center space-x-6 px-4'>
-        {collections.map((collection) => (
+        {data.collections?.map((collection) => (
           <div key={collection.id} className='flex-1'>
             <h3>{collection.name}</h3>
             <div>
               {collection.items?.map((item) => (
                 <Image
+                  key={item.id}
                   src={item.image!.url}
                   alt={item.image?.alternativeText}
                   width={item.image!.width}
@@ -41,17 +37,15 @@ export default function HomePage({ collections }: Props) {
       </section>
     </main>
   );
-}
+};
+
+export default HomePage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const apolloClient = initializeApollo();
+  const props = await ssrGetCollections.getServerPage({});
 
-  const { data } = await collectionFind(apolloClient);
-
-  return addApolloState(apolloClient, {
-    props: {
-      collections: data.collections,
-    },
+  return {
+    ...props,
     revalidate: 1,
-  });
+  };
 };

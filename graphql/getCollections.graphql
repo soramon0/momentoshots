@@ -1,0 +1,16 @@
+query getCollections {
+  collections {
+    id
+    name
+    items {
+      id
+      highlight
+      image {
+        url
+        alternativeText
+        width
+        height
+      }
+    }
+  }
+}
