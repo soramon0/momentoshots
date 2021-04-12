@@ -10,22 +10,9 @@ generates:
       - typescript-apollo-client-helpers
     config:
       reactApolloVersion: 3
-      withHooks: fals
+      withHooks: false
       withHOC: false
       withComponent: false
       exportFragmentSpreadSubTypes: true
       documentMode: graphQLTag
       useTypeImports: true
-  graphql/generated/page.tsx:
-    config:
-      documentMode: external
-      importDocumentNodeExternallyFrom: ./index
-      reactApolloVersion: 3
-      withHooks: true
-      withHOC: false
-      apolloClientInstanceImport: '../../lib/apolloClient'
-    preset: import-types
-    presetConfig:
-      typesPath: ./index
-    plugins:
-      - graphql-codegen-apollo-next-ssr

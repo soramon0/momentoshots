@@ -1,10 +1,10 @@
-import { GetStaticProps } from 'next';
+import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import type { PageGetCollectionsComp } from '@/graphql/generated/page';
-import { ssrGetCollections } from '@/graphql/generated/page';
+import type { PageGetCollectionsComp } from '@/graphql/query/collection';
+import { ssrGetCollections } from '@/graphql/query/collection';
 
 const HomePage: PageGetCollectionsComp = ({ data }) => {
   return (
@@ -42,7 +42,7 @@ const HomePage: PageGetCollectionsComp = ({ data }) => {
 export default HomePage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const props = await ssrGetCollections.getServerPage({});
+  const props = await ssrGetCollections.getServerSide();
 
   return {
     ...props,
