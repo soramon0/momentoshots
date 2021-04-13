@@ -2,18 +2,11 @@ mutation createContact(
   $name: String!
   $email: String!
   $phone: String!
-  $subject: String!
   $message: String!
 ) {
   createContact(
     input: {
-      data: {
-        name: $name
-        email: $email
-        phone: $phone
-        subject: $subject
-        message: $message
-      }
+      data: { name: $name, email: $email, phone: $phone, message: $message }
     }
   ) {
     contact {
