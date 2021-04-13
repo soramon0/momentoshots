@@ -42,10 +42,10 @@ const HomePage: PageGetCollectionsComp = ({ data }) => {
 export default HomePage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const props = await ssrGetCollections.getServerSide();
+  const collectionsData = await ssrGetCollections.getServerSide();
 
   return {
-    ...props,
+    props: collectionsData,
     revalidate: 1,
   };
 };

@@ -25,10 +25,8 @@ export async function getCollections(options: GetCollectionsOptions = {}) {
 	});
 
 	return addApolloState(apolloClient, {
-		props: {
-			data: data?.data,
-			error: data?.error ?? data?.errors ?? null,
-		},
+		data: data?.data,
+		error: data?.error ?? data?.errors ?? null,
 	});
 }
 
