@@ -1,16 +1,18 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import IconMenu from '../icons/Menu';
 import IconClose from '../icons/Close';
 
 const navigation = [
-  { link: '/', text: 'Home' },
-  { link: '#', text: 'Collections' },
-  { link: '/contact', text: 'Contact' },
+  { route: '/', text: 'Home' },
+  { route: '#', text: 'Collections' },
+  { route: '/contact', text: 'Contact' },
 ];
 
 function Navbar() {
+  const { route } = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -22,8 +24,8 @@ function Navbar() {
   };
 
   return (
-    <header className="w-full p-8">
-      <nav className="max-w-screen-xl mx-auto flex">
+    <header className="w-full p-8 relative z-40">
+      <nav className="flex">
         <div className="w-2/5">
           <Link href="/">Logo</Link>
         </div>
@@ -31,8 +33,14 @@ function Navbar() {
         <div className="hidden md:w-3/5 md:flex md:justify-between">
           <div className="space-x-8">
             {navigation.map((item) => (
-              <Link key={item.link} href={item.link}>
-                <a onClick={closeMenu} tabIndex={!isMenuOpen ? -1 : 0}>
+              <Link key={item.route} href={item.route}>
+                <a
+                  className={`text-lg font-semibold outline-none hover:text-green-300 focus:text-green-300 ${
+                    route === item.route ? 'text-green-300' : 'text-gray-900'
+                  }`}
+                  onClick={closeMenu}
+                  tabIndex={isMenuOpen ? -1 : 0}
+                >
                   {item.text}
                 </a>
               </Link>
@@ -40,11 +48,9 @@ function Navbar() {
           </div>
           <div className="space-x-4">
             <Link href="#">
-              <a>IG</a>
+              <a className="font-semibold">IG</a>
             </Link>
-            <Link href="#">
-              <a>052615615</a>
-            </Link>
+            <span className="font-semibold">052615615</span>
           </div>
         </div>
 
@@ -82,8 +88,16 @@ function Navbar() {
             <div className="h-full flex flex-col justify-between">
               <div className="mt-8 flex flex-col space-y-4">
                 {navigation.map((item) => (
-                  <Link key={item.link} href={item.link}>
-                    <a onClick={closeMenu} tabIndex={!isMenuOpen ? -1 : 0}>
+                  <Link key={item.route} href={item.route}>
+                    <a
+                      className={`outline-none hover:text-green-300 focus:text-green-300 ${
+                        route === item.route
+                          ? 'text-green-300'
+                          : 'text-gray-800'
+                      }`}
+                      onClick={closeMenu}
+                      tabIndex={!isMenuOpen ? -1 : 0}
+                    >
                       {item.text}
                     </a>
                   </Link>
