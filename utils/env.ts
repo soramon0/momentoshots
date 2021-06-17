@@ -1,14 +1,14 @@
 function checkEnv(env: string | undefined, name: string) {
-	if (!env) {
-		throw new Error(
-			`Please define the ${name} environment variable inside .env.local`
-		)
-	}
+  if (!env) {
+    throw new Error(
+      `Please define the ${name} environment variable inside .env.local`
+    );
+  }
 
-	return env
+  return env;
 }
 
 export function getGqlEndpoint() {
-	const env = process.env.NEXT_PUBLIC_GQL_URL
-	return checkEnv(env, 'NEXT_PUBLIC_GQL_URL')
+  const env = process.env.NEXT_PUBLIC_GQL_URL;
+  return checkEnv(env, 'NEXT_PUBLIC_GQL_URL');
 }

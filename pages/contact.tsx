@@ -33,75 +33,75 @@ function ContactPage() {
       </Head>
       <Notifier error={error} type={error ? 'Error' : 'Success'} />
 
-      <div className='text-center p-4'>
-        <Link href='/'>Back Home</Link>
+      <div className="text-center p-4">
+        <Link href="/">Back Home</Link>
       </div>
 
       <form
-        method='post'
-        className='max-w-4xl mx-auto m-4'
+        method="post"
+        className="max-w-4xl mx-auto m-4"
         onSubmit={sendContactMessage}
       >
         <fieldset
-          className='bg-gray-50 shadow-sm p-4 space-y-4'
+          className="bg-gray-50 shadow-sm p-4 space-y-4"
           disabled={loading}
           aria-busy={loading}
         >
-          <div className='sm:flex sm:space-x-6'>
-            <div className='flex-1 space-y-2'>
-              <label htmlFor='name' className='block'>
+          <div className="sm:flex sm:space-x-6">
+            <div className="flex-1 space-y-2">
+              <label htmlFor="name" className="block">
                 Name
                 <input
-                  type='text'
-                  name='name'
-                  placeholder='Your Name'
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
                   value={inputs.name}
                   onChange={onChange}
-                  className='block w-full p-2 rounded-md'
+                  className="block w-full p-2 rounded-md"
                 />
               </label>
-              <label htmlFor='name' className='block'>
+              <label htmlFor="name" className="block">
                 Email
                 <input
-                  type='email'
-                  name='email'
-                  placeholder='Your Email'
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
                   value={inputs.email}
                   onChange={onChange}
-                  className='block w-full p-2 rounded-md'
+                  className="block w-full p-2 rounded-md"
                 />
               </label>
-              <label htmlFor='name' className='block'>
+              <label htmlFor="name" className="block">
                 Phone
                 <input
-                  type='text'
-                  name='phone'
-                  placeholder='Your Phone'
+                  type="text"
+                  name="phone"
+                  placeholder="Your Phone"
                   value={inputs.phone}
                   onChange={onChange}
-                  className='block w-full p-2 rounded-md'
+                  className="block w-full p-2 rounded-md"
                 />
               </label>
             </div>
 
-            <div className='flex-1'>
-              <label htmlFor='name'>
+            <div className="flex-1">
+              <label htmlFor="name">
                 Message
                 <textarea
                   rows={7}
-                  name='message'
-                  placeholder='Your Message'
+                  name="message"
+                  placeholder="Your Message"
                   value={inputs.message}
                   onChange={onChange}
-                  className='block w-full p-2 rounded-md'
+                  className="block w-full p-2 rounded-md"
                 />
               </label>
             </div>
           </div>
-          <div className='text-center'>
+          <div className="text-center">
             <button
-              type='submit'
-              className='bg-indigo-600 text-white font-semibold tracking-wide py-2 px-6 rounded-md'
+              type="submit"
+              className="bg-indigo-600 text-white font-semibold tracking-wide py-2 px-6 rounded-md"
             >
               Send Message
             </button>

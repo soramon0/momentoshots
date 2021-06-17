@@ -20,11 +20,11 @@ function Notifier({ type, error, message }: Props) {
     if (hasNetworkError) {
       return networkError.errors.map((error, i) => (
         <div
-          className='max-w-md bg-red-400 px-4 py-3 rounded-sm absolute right-6 bottom-10'
+          className="max-w-md bg-red-400 px-4 py-3 rounded-sm absolute right-6 bottom-10"
           key={i}
         >
-          <p className='text-white'>
-            <strong className='text-white'>Shoot! </strong>
+          <p className="text-white">
+            <strong className="text-white">Shoot! </strong>
             {error.message.replace('GraphQL error: ', '')}
           </p>
         </div>
@@ -38,10 +38,10 @@ function Notifier({ type, error, message }: Props) {
         return Object.values(errors).map((msg: string, i) => (
           <div
             key={i}
-            className='max-w-md bg-red-400 px-4 py-3 rounded-sm absolute right-6 bottom-10'
+            className="max-w-md bg-red-400 px-4 py-3 rounded-sm absolute right-6 bottom-10"
           >
-            <p className='text-white'>
-              <strong className='font-semibold'>Shoot! </strong>
+            <p className="text-white">
+              <strong className="font-semibold">Shoot! </strong>
               {msg}
             </p>
           </div>
@@ -51,9 +51,9 @@ function Notifier({ type, error, message }: Props) {
   }
 
   return (
-    <div className='max-w-md bg-green-400 px-4 py-3 rounded-sm absolute right-6 bottom-10'>
-      <p className='text-white'>
-        <strong className='font-semibold'>Yay!</strong> {message}
+    <div className="max-w-md bg-green-400 px-4 py-3 rounded-sm absolute right-6 bottom-10">
+      <p className="text-white">
+        <strong className="font-semibold">Yay!</strong> {message}
       </p>
     </div>
   );

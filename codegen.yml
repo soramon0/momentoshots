@@ -1,6 +1,6 @@
 overwrite: true
 schema: ${NEXT_PUBLIC_GQL_URL}
-documents: "graphql/**/*.graphql"
+documents: 'graphql/**/*.graphql'
 generates:
   graphql/generated/index.tsx:
     plugins:

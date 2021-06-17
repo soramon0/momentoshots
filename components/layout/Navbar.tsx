@@ -22,14 +22,14 @@ function Navbar() {
   };
 
   return (
-    <header className='w-full p-8'>
-      <nav className='max-w-screen-xl mx-auto flex'>
-        <div className='w-2/5'>
-          <Link href='/'>Logo</Link>
+    <header className="w-full p-8">
+      <nav className="max-w-screen-xl mx-auto flex">
+        <div className="w-2/5">
+          <Link href="/">Logo</Link>
         </div>
 
-        <div className='hidden md:w-3/5 md:flex md:justify-between'>
-          <div className='space-x-8'>
+        <div className="hidden md:w-3/5 md:flex md:justify-between">
+          <div className="space-x-8">
             {navigation.map((item) => (
               <Link key={item.link} href={item.link}>
                 <a onClick={closeMenu} tabIndex={!isMenuOpen ? -1 : 0}>
@@ -38,22 +38,22 @@ function Navbar() {
               </Link>
             ))}
           </div>
-          <div className='space-x-4'>
-            <Link href='#'>
+          <div className="space-x-4">
+            <Link href="#">
               <a>IG</a>
             </Link>
-            <Link href='#'>
+            <Link href="#">
               <a>052615615</a>
             </Link>
           </div>
         </div>
 
-        <div className='ml-auto md:hidden'>
+        <div className="ml-auto md:hidden">
           <button
-            className='w-6 h-6'
+            className="w-6 h-6"
             onClick={toggleMenu}
             tabIndex={isMenuOpen ? -1 : 0}
-            aria-label='open side menu'
+            aria-label="open side menu"
           >
             <IconMenu />
           </button>
@@ -71,16 +71,16 @@ function Navbar() {
             }`}
           >
             <button
-              className='w-6 h-6 absolute right-4'
+              className="w-6 h-6 absolute right-4"
               onClick={toggleMenu}
               tabIndex={!isMenuOpen ? -1 : 0}
-              aria-label='open side menu'
+              aria-label="open side menu"
             >
               <IconClose />
             </button>
 
-            <div className='h-full flex flex-col justify-between'>
-              <div className='mt-8 flex flex-col space-y-4'>
+            <div className="h-full flex flex-col justify-between">
+              <div className="mt-8 flex flex-col space-y-4">
                 {navigation.map((item) => (
                   <Link key={item.link} href={item.link}>
                     <a onClick={closeMenu} tabIndex={!isMenuOpen ? -1 : 0}>
@@ -90,8 +90,8 @@ function Navbar() {
                 ))}
               </div>
 
-              <div className='mt-auto'>
-                <Link href='/'>
+              <div className="mt-auto">
+                <Link href="/">
                   <a onClick={closeMenu} tabIndex={!isMenuOpen ? -1 : 0}>
                     Logo
                   </a>
