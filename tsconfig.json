@@ -18,7 +18,8 @@
       "@/components/*": ["components/*"],
       "@/lib/*": ["lib/*"],
       "@/utils/*": ["utils/*"],
-      "@/graphql/*": ["graphql/*"]
+      "@/graphql/*": ["graphql/*"],
+      "@/images/*": ["public/images/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -1,6 +1,8 @@
 import Thumbnail from '@/components/shared/Thumbnail';
 import Head from 'next/head';
 
+import ownerPortrait from '@/images/photographer-1.jpg';
+
 const HomePage = () => {
   return (
     <main>
@@ -24,12 +26,13 @@ const HomePage = () => {
         </div>
         <div className="md:flex-1">
           <Thumbnail
-            src="/images/photographer-1.jpg"
+            src={ownerPortrait}
             alt="Oumaima Hoummir"
             layout="responsive"
             width="1920"
             height="2560"
             overlay
+            placeholder="blur"
           />
         </div>
       </section>
