@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import IconMenu from '../icons/Menu';
 import IconClose from '../icons/Close';
+import IconIG from '../icons/IG';
 
 const navigation = [
   { route: '/', text: 'Home' },
@@ -35,8 +36,8 @@ function Navbar() {
             {navigation.map((item) => (
               <Link key={item.route} href={item.route}>
                 <a
-                  className={`text-lg font-semibold outline-none hover:text-green-300 focus:text-green-300 ${
-                    route === item.route ? 'text-green-300' : 'text-gray-900'
+                  className={`text-lg font-semibold relative overflow-hidden outline-none hover:text-primary focus:text-primary focus:ring-1 focus:ring-primary focus:ring-offset-2 focus:ring-offset-green-300 ${
+                    route === item.route ? 'text-primary' : 'text-gray-900'
                   }`}
                   onClick={closeMenu}
                   tabIndex={isMenuOpen ? -1 : 0}
@@ -46,11 +47,22 @@ function Navbar() {
               </Link>
             ))}
           </div>
-          <div className="space-x-4">
-            <Link href="#">
-              <a className="font-semibold">IG</a>
+          <div className="space-x-4 flex items-center">
+            <Link href="https://www.instagram.com/momento_shots/">
+              <a
+                target="_blank"
+                className="outline-none focus:ring-1 focus:ring-offset-2 focus:ring-offset-primary focus:ring-primary"
+                aria-label="instagram account"
+              >
+                <IconIG className="w-6 h-6 transition-colors duration-500 hover:text-primary" />
+              </a>
             </Link>
-            <span className="font-semibold">052615615</span>
+            <span
+              className="font-semibold"
+              aria-label="phone number: 052615615"
+            >
+              052615615
+            </span>
           </div>
         </div>
 
@@ -90,10 +102,8 @@ function Navbar() {
                 {navigation.map((item) => (
                   <Link key={item.route} href={item.route}>
                     <a
-                      className={`outline-none hover:text-green-300 focus:text-green-300 ${
-                        route === item.route
-                          ? 'text-green-300'
-                          : 'text-gray-800'
+                      className={`outline-none hover:text-primary focus:text-primary focus:ring-1 focus:ring-primary focus:ring-offset-2 focus:ring-offset-green-300 ${
+                        route === item.route ? 'text-primary' : 'text-gray-800'
                       }`}
                       onClick={closeMenu}
                       tabIndex={!isMenuOpen ? -1 : 0}

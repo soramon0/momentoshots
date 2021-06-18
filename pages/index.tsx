@@ -17,7 +17,7 @@ const HomePage = () => {
             <p className="mt-4 text-xl font-body text-gray-500 xl:mt-0 md:text-2xl">
               Outdoor Photographer based out of Marrakech, Morocco.
             </p>
-            <button className="mt-6 font-display text-gray-900 bg-green-200 transition-colors hover:bg-green-300 py-3 px-6 rounded-md">
+            <button className="mt-6 font-display text-gray-50 bg-primary transition-colors hover:bg-green-300 hover:text-green-800 py-3 px-6 rounded-md">
               Book a Session
             </button>
           </div>
