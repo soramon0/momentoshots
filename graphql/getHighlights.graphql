@@ -1,0 +1,9 @@
+query getHighlights {
+  items(where: { highlight: true }) {
+    id
+    image {
+      alternativeText
+      url
+    }
+  }
+}
