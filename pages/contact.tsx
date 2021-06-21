@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import useForm from '@/lib/useForm';
-import { useCreateContact } from '@/graphql/query/contact';
+import { useCreateContact } from '@/graphql/mutation/contact';
 import Notifier from '@/components/Notifier';
 
 function ContactPage() {

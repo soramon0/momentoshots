@@ -1,0 +1,22 @@
+# Write your query or mutation here
+query getHomePageData {
+  homePage {
+    testimonials {
+      id
+      fullname
+      picture {
+        alternativeText
+        url
+      }
+      keywords
+      content
+    }
+  }
+  items(where: { highlight: true }) {
+    id
+    image {
+      alternativeText
+      url
+    }
+  }
+}
