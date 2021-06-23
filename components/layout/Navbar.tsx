@@ -8,7 +8,7 @@ import IconIG from '../icons/IG';
 
 const navigation = [
   { route: '/', text: 'Home' },
-  { route: '#', text: 'Collections' },
+  { route: '/collections', text: 'Collections' },
   { route: '/contact', text: 'Contact' },
 ];
 

@@ -1,11 +1,4 @@
-import { NextRouter, useRouter } from 'next/router';
-import { useQuery } from '@apollo/client';
-import type { FC } from 'react';
-import type {
-  QueryOptions,
-  QueryHookOptions,
-  ApolloError,
-} from '@apollo/client';
+import type { QueryOptions } from '@apollo/client';
 
 import type * as Types from '../generated';
 import { GetCollectionsDocument } from '../generated';
@@ -25,30 +18,7 @@ export async function getCollections(options: GetCollectionsOptions = {}) {
   });
 
   return addApolloState(apolloClient, {
-    data: data?.data,
+    data: data?.data.collections,
     error: data?.error ?? data?.errors ?? null,
   });
 }
-
-type OptionsFunc = (
-  router: NextRouter
-) => QueryHookOptions<
-  Types.GetCollectionsQuery,
-  Types.GetCollectionsQueryVariables
->;
-
-export const useGetCollections = (optionsFunc?: OptionsFunc) => {
-  const router = useRouter();
-  const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(GetCollectionsDocument, options);
-};
-
-export const ssrGetCollections = {
-  getServerSide: getCollections,
-  usePage: useGetCollections,
-};
-
-export type PageGetCollectionsComp = FC<{
-  data?: Types.GetCollectionsQuery;
-  error?: ApolloError;
-}>;

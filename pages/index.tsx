@@ -15,7 +15,7 @@ const HomePage: HomePageProps = ({ highlights, testimonials }) => {
   return (
     <main className="space-y-36 sm:space-y-48 md:space-y-52">
       <Head>
-        <title>Momento Shots</title>
+        <title>Momento Shots - Home</title>
       </Head>
 
       <Introduction />
