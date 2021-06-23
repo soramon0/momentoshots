@@ -14,7 +14,7 @@ function About() {
           based out of Marrakech, Morocco.
         </p>
       </div>
-      <div className="overflow-hidden md:w-3/5">
+      <div className="overflow-hidden md:overflow-visible md:w-3/5">
         <Thumbnail
           src={ownerLandscape}
           alt="Oumaima Hoummir"

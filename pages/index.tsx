@@ -1,5 +1,7 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import { HomePageProps } from 'types/pages/home';
 import { getHomePageData } from '@/graphql/query/homepage';
@@ -11,7 +13,7 @@ import Highlights from '@/components/home/Highlights';
 
 const HomePage: HomePageProps = ({ highlights, testimonials }) => {
   return (
-    <main className="space-y-36 sm:space-y-52 md:space-y-64">
+    <main className="space-y-36 sm:space-y-48 md:space-y-52">
       <Head>
         <title>Momento Shots</title>
       </Head>
