@@ -5,12 +5,10 @@ interface Props {
   collections: ICollections;
 }
 const Collections: React.VFC<Props> = ({ collections }) => {
-  console.log(collections);
-
   return (
-    <div className="flex">
-      {collections.map((colection) => (
-        <Collection collection={colection} key={colection.id} />
+    <div className="space-y-8 md:space-y-0 md:flex md:flex-wrap md:justify-between">
+      {collections.map((colection, i) => (
+        <Collection collection={colection} index={i + 1} key={colection.id} />
       ))}
     </div>
   );

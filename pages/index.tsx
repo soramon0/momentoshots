@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import { HomePageProps } from 'types/pages/home';
 import { getHomePageData } from '@/graphql/query/homepage';
-import split from '@/utils/split';
+import { split } from '@/utils/index';
 import Introduction from '@/components/home/Introduction';
 import About from '@/components/home/About';
 import Testimonials from '@/components/home/Testimonials';

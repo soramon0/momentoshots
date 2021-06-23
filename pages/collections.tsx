@@ -7,7 +7,7 @@ import Collections from '@/components/collections/Collections';
 
 const CollectionsPage: CollectionsPageProps = ({ collections }) => {
   return (
-    <main className="px-4 space-y-8 sm:px-8 sm:space-y-10 md:px-12 md:space-y-16">
+    <main className="px-4 space-y-12 sm:px-8 md:px-12">
       <Head>
         <title>Momento Shots - Collections</title>
       </Head>
