@@ -2,6 +2,8 @@ query getCollections {
   collections {
     id
     name
+    slug
+    description
     headerImage {
       url
       alternativeText
