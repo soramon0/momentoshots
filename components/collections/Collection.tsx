@@ -15,9 +15,9 @@ const Collection: React.VFC<Props> = ({ collection, index }) => {
   const linkLabel = `${collection.name} collection`;
 
   return (
-    <article className="p-4 md:py-6 md:w-1/2">
-      <div className="overflow-hidden flex rounded-md shadow-md">
-        <div className="w-1/2 h-60">
+    <article className="p-4 w-full md:py-6 lg:w-1/2">
+      <div className="overflow-hidden rounded-md shadow-md sm:flex">
+        <div className="h-56 overflow-hidden sm:w-1/2 sm:h-60">
           <Link href={link}>
             <a aria-label={linkLabel}>
               <Image
@@ -30,17 +30,17 @@ const Collection: React.VFC<Props> = ({ collection, index }) => {
             </a>
           </Link>
         </div>
-        <div className="w-1/2 h-60 p-4 relative">
-          <span className="inline-block -mt-4 text-8xl text-gray-200">
+        <div className="h-60 p-4 relative sm:w-1/2">
+          <span className="inline-block -mt-6 text-8xl text-gray-200 sm:-mt-4">
             #{pad(index, 2)}
           </span>
           <h2
-            className="-mt-5 text-2xl font-medium font-display text-gray-500 truncate md:-mt-6 md:text-3xl lg:text-4xl"
+            className="-mt-5 text-4xl font-medium font-display text-gray-500 truncate md:-mt-6 lg:text-4xl"
             title={collection.name}
           >
             {collection.name}
           </h2>
-          <p className="mt-2 text-sm line-clamp-4 text-gray-400 lg:text-base lg:line-clamp-3">
+          <p className="mt-2 text-sm line-clamp-4 text-gray-400 sm:line-clamp-3 lg:text-base">
             {collection.description}
           </p>
           <Link href={link}>
