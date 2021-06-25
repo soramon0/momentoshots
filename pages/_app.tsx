@@ -17,14 +17,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps);
 
   return (
-    <Page>
+    <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ApolloProvider client={apolloClient}>
-        <Component {...pageProps} />
-      </ApolloProvider>
-    </Page>
+      <Page>
+        <ApolloProvider client={apolloClient}>
+          <Component {...pageProps} />
+        </ApolloProvider>
+      </Page>
+    </>
   );
 }
 
