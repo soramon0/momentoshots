@@ -17,15 +17,14 @@ const Collection: React.VFC<Props> = ({ collection, index }) => {
   return (
     <article className="p-4 w-full md:py-6 lg:w-1/2">
       <div className="overflow-hidden rounded-md shadow-md sm:flex">
-        <div className="h-56 overflow-hidden sm:w-1/2 sm:h-60">
+        <div className="h-56 overflow-hidden relative sm:w-1/2 sm:h-60">
           <Link href={link}>
             <a aria-label={linkLabel}>
               <Image
                 src={collection.headerImage.url}
                 alt={collection.headerImage.alternativeText}
-                width="400"
-                height="380"
-                layout="responsive"
+                layout="fill"
+                objectFit="cover"
               />
             </a>
           </Link>
