@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { ISplitHighlights } from 'types/pages/home';
+import { IHighlights } from 'types/pages/home';
 
 interface Props {
-  highlights: ISplitHighlights;
+  highlights: IHighlights;
 }
+
 const Highlights: React.VFC<Props> = ({ highlights }) => {
   return (
     <section className="py-24 px-4 space-y-14 text-center bg-secondary sm:space-y-24 md:px-8">
@@ -13,29 +14,20 @@ const Highlights: React.VFC<Props> = ({ highlights }) => {
         Work we are proud of
       </h2>
 
-      <div className="sm:flex sm:justify-evenly sm:space-x-4 lg:space-x-0">
-        {highlights.map((highlight, i) => (
+      <div className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:justify-items-center sm:pt-16 md:gap-y-16 md:pt-48">
+        {highlights.map((item, i) => (
           <div
-            className={`sm:w-96 space-y-8 sm:space-y-16 md:space-y-28 lg:space-y-36 ${
-              i === 1 ? 'sm:mt-16 md:mt-48' : 'mb-8 sm:mb-0'
+            className={`relative w-full h-[600px] lg:w-[400px] ${
+              i % 2 == 0 ? 'sm:-mt-16 md:-mt-48' : ''
             }`}
-            key={i}
+            key={item.id}
           >
-            {highlight.map((item) => {
-              const { url, alternativeText } = item.image;
-              return (
-                <div key={item.id}>
-                  <Image
-                    src={url}
-                    alt={alternativeText}
-                    width="1080"
-                    height="1620"
-                    layout="responsive"
-                    objectFit="cover"
-                  />
-                </div>
-              );
-            })}
+            <Image
+              src={item.image.url}
+              alt={item.image.alternativeText}
+              layout="fill"
+              objectFit="cover"
+            />
           </div>
         ))}
       </div>
