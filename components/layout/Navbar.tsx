@@ -94,7 +94,7 @@ function Navbar() {
             }`}
           >
             <button
-              className="w-6 h-6 absolute right-4"
+              className="w-6 h-6 absolute right-4 top-4"
               onClick={toggleMenu}
               tabIndex={!isMenuOpen ? -1 : 0}
               aria-label="open side menu"
