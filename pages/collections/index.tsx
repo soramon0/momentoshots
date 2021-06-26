@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { motion } from 'framer-motion';
 
 import { CollectionsPageProps } from '@/types/pages/collections';
 import { getCollections } from '@/graphql/query/collection';
@@ -7,7 +8,12 @@ import Collections from '@/components/collections/Collections';
 
 const CollectionsPage: CollectionsPageProps = ({ collections }) => {
   return (
-    <main className="px-4 py-6 space-y-12 sm:px-8 sm:py-14 md:px-12">
+    <motion.main
+      initial="initial"
+      animate="animate"
+      exit={{ opacity: 0 }}
+      className="px-4 py-6 space-y-12 sm:px-8 sm:py-14 md:px-12"
+    >
       <Head>
         <title>Momento Shots - Collections</title>
       </Head>
@@ -17,7 +23,7 @@ const CollectionsPage: CollectionsPageProps = ({ collections }) => {
       </h1>
 
       <Collections collections={collections} />
-    </main>
+    </motion.main>
   );
 };
 
