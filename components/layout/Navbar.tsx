@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import IconMenu from '../icons/Menu';
 import IconClose from '../icons/Close';
@@ -25,10 +26,14 @@ function Navbar() {
   };
 
   return (
-    <header className="w-full p-8 relative z-40">
-      <nav className="flex">
+    <header className="w-full px-8 py-4 relative z-40">
+      <nav className="flex items-center">
         <div className="w-2/5">
-          <Link href="/">Logo</Link>
+          <Link href="/">
+            <a className="w-16 h-14 relative inline-block md:w-20 md:h-20">
+              <Image src="/images/logo.svg" alt="logo" layout="fill" />
+            </a>
+          </Link>
         </div>
 
         <div className="hidden md:w-3/5 md:flex md:justify-between">
@@ -84,7 +89,7 @@ function Navbar() {
           />
 
           <div
-            className={`w-4/5 p-4 fixed z-50 top-0 right-0 bottom-0 bg-gray-100 shadow-md transition-transform duration-500 transform md:max-w-lg ${
+            className={`w-4/5 fixed z-50 top-0 right-0 bottom-0 bg-gray-100 shadow-md transition-transform duration-500 transform md:max-w-lg ${
               isMenuOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
           >
@@ -98,7 +103,7 @@ function Navbar() {
             </button>
 
             <div className="h-full flex flex-col justify-between">
-              <div className="mt-8 flex flex-col space-y-4">
+              <div className="p-4 mt-8 flex flex-col space-y-4">
                 {navigation.map((item) => (
                   <Link key={item.route} href={item.route}>
                     <a
@@ -114,10 +119,14 @@ function Navbar() {
                 ))}
               </div>
 
-              <div className="mt-auto">
+              <div className="mt-auto border-t border-gray-300 p-4">
                 <Link href="/">
-                  <a onClick={closeMenu} tabIndex={!isMenuOpen ? -1 : 0}>
-                    Logo
+                  <a
+                    className="w-16 h-16 relative inline-block"
+                    onClick={closeMenu}
+                    tabIndex={!isMenuOpen ? -1 : 0}
+                  >
+                    <Image src="/images/logo.svg" alt="logo" layout="fill" />
                   </a>
                 </Link>
               </div>

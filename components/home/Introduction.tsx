@@ -3,7 +3,7 @@ import Thumbnail from '@/components/shared/Thumbnail';
 
 function Introduction() {
   return (
-    <section className="mt-8 space-y-8 md:-mt-24 md:space-y-0 md:flex">
+    <section className="mt-8 space-y-8 md:-mt-32 md:space-y-0 md:flex">
       <div className="md:flex-1 md:flex md:flex-col md:justify-center">
         <div className="px-4 md:px-12">
           <h1 className="text-3xl font-display sm:text-4xl sm:leading-normal md:text-5xl xl:leading-loose">
