@@ -1,0 +1,39 @@
+query getCollection($slug: String!) {
+  collections(where: { slug: $slug }) {
+    id
+    slug
+    name
+    description
+    headerImage {
+      alternativeText
+      url
+    }
+    items {
+      id
+      image {
+        alternativeText
+        url
+      }
+    }
+  }
+}
+
+query getCollections {
+  collections {
+    id
+    name
+    slug
+    description
+    headerImage {
+      url
+      alternativeText
+    }
+  }
+}
+
+query getCollectionPaths {
+  collections {
+    slug
+    name
+  }
+}

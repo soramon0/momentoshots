@@ -15,7 +15,7 @@ const Collection: React.VFC<Props> = ({ collection, index }) => {
   const linkLabel = `${collection.name} collection`;
 
   return (
-    <article className="rounded-md shadow-md lg:flex">
+    <article className="overflow-hidden rounded-md shadow-md lg:flex">
       <div className="h-56 overflow-hidden relative sm:h-60 lg:w-1/2">
         <Link href={link}>
           <a aria-label={linkLabel}>
