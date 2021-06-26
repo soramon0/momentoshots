@@ -13,7 +13,12 @@ const CollectionPage: CollectionPageProps = ({
   collectionPaths,
 }) => {
   return (
-    <motion.main initial="initial" animate="animate" exit={{ opacity: 0 }}>
+    <motion.main
+      initial="initial"
+      animate="animate"
+      exit={{ opacity: 0 }}
+      key={collection.id}
+    >
       <motion.section variants={staggerLonger} className="h-screen">
         <div className="h-2/5 relative flex flex-col justify-center">
           <motion.h1
