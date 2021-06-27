@@ -1,7 +1,11 @@
 import type { QueryOptions } from '@apollo/client';
 
 import type * as Types from '../generated';
-import { GetCollectionsDocument, GetCollectionDocument, GetCollectionPathsDocument } from '../generated';
+import {
+  GetCollectionsDocument,
+  GetCollectionDocument,
+  GetCollectionPathsDocument,
+} from '../generated';
 import { addApolloState, initializeApollo } from '../../lib/apolloClient';
 
 type GetCollectionsOptions = Omit<
@@ -47,7 +51,9 @@ type GetCollectionPathsOptions = Omit<
   'query'
 >;
 
-export async function getCollectionPaths(options: GetCollectionPathsOptions = {}) {
+export async function getCollectionPaths(
+  options: GetCollectionPathsOptions = {}
+) {
   const apolloClient = initializeApollo();
 
   const data = await apolloClient.query<Types.GetCollectionPathsQuery>({

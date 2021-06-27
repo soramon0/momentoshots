@@ -5,13 +5,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'display': ['Sora', 'sans-serif'],
-        'body': ['Source Sans Pro', 'sans-serif']
+        display: ['Sora', 'sans-serif'],
+        body: ['Source Sans Pro', 'sans-serif'],
       },
       colors: {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
-      }
+      },
     },
   },
   variants: {
