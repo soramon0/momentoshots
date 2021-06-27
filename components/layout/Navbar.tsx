@@ -3,11 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useCycle } from 'framer-motion';
 
+import { isRoute } from '@/utils/index';
 import IconIG from '@/components/icons/IG';
 import Sidebar from '@/components/layout/Sidebar';
 
-export const navigation = [
-  { route: '/', text: 'Home' },
+export const navigation: NavItem[] = [
+  { route: '/home', text: 'Home' },
   { route: '/collections', text: 'Collections' },
   { route: '/contact', text: 'Contact' },
 ];
@@ -30,10 +31,15 @@ function Navbar() {
         <div className="hidden md:w-3/5 md:flex md:justify-between">
           <div className="space-x-8">
             {navigation.map((item) => (
-              <Link key={item.route} href={item.route}>
+              <Link
+                key={item.route}
+                href={item.route === '/home' ? '/' : item.route}
+              >
                 <a
                   className={`text-lg font-semibold relative overflow-hidden outline-none hover:text-primary focus:text-primary focus:ring-1 focus:ring-primary focus:ring-offset-2 focus:ring-offset-green-300 ${
-                    route === item.route ? 'text-primary' : 'text-gray-900'
+                    isRoute(item.route, route)
+                      ? 'text-primary'
+                      : 'text-gray-900'
                   }`}
                   tabIndex={isMenuOpen ? -1 : 0}
                 >
@@ -68,3 +74,8 @@ function Navbar() {
 }
 
 export default Navbar;
+
+export type NavItem = {
+  route: string;
+  text: string;
+};

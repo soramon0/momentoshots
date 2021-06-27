@@ -5,33 +5,45 @@ import { motion, Variants } from 'framer-motion';
 import { navigation } from '@/components/layout/Navbar';
 import MenuItem, { menuItem } from '@/components/layout/SidebarItem';
 
-const SidebarItems = ({ isMenuOpen, toggleMenuOpen, route }) => (
-  <motion.ul variants={items} className="px-6 pt-16 fixed top-0 bottom-0">
-    {navigation.map((item, i) => (
-      <MenuItem
-        toggleMenuOpen={toggleMenuOpen}
-        isMenuOpen={isMenuOpen}
-        key={i}
-        item={item}
-        route={route}
-      />
-    ))}
-    <motion.li
-      className="absolute left-0 right-0 bottom-0 px-8 py-4"
-      variants={menuItem}
-    >
-      <Link href="/">
-        <a
-          className="w-16 h-16 relative inline-block"
-          onClick={toggleMenuOpen}
-          tabIndex={!isMenuOpen ? -1 : 0}
-        >
-          <Image src="/images/logo.svg" alt="logo" layout="fill" />
-        </a>
-      </Link>
-    </motion.li>
-  </motion.ul>
-);
+interface Props {
+  isMenuOpen: boolean;
+  toggleMenuOpen: () => void;
+  route: string;
+}
+
+const SidebarItems: React.VFC<Props> = ({
+  isMenuOpen,
+  toggleMenuOpen,
+  route,
+}) => {
+  return (
+    <motion.ul variants={items} className="px-6 pt-16 fixed top-0 bottom-0">
+      {navigation.map((item, i) => (
+        <MenuItem
+          toggleMenuOpen={toggleMenuOpen}
+          isMenuOpen={isMenuOpen}
+          key={i}
+          item={item}
+          route={route}
+        />
+      ))}
+      <motion.li
+        className="absolute left-0 right-0 bottom-0 px-8 py-4"
+        variants={menuItem}
+      >
+        <Link href="/">
+          <a
+            className="w-16 h-16 relative inline-block"
+            onClick={toggleMenuOpen}
+            tabIndex={!isMenuOpen ? -1 : 0}
+          >
+            <Image src="/images/logo.svg" alt="logo" layout="fill" />
+          </a>
+        </Link>
+      </motion.li>
+    </motion.ul>
+  );
+};
 
 export default SidebarItems;
 

@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+import { isRoute } from '@/utils/index';
+import { NavItem } from '@/components/layout/Navbar';
+
 interface Props {
   isMenuOpen: boolean;
   toggleMenuOpen: () => void;
   route: string;
-  item: any;
+  item: NavItem;
 }
 
 const MenuItem: React.VFC<Props> = ({
@@ -22,10 +25,12 @@ const MenuItem: React.VFC<Props> = ({
       whileFocus={{ scale: 1.1 }}
       className="mb-6 flex items-center cursor-pointer"
     >
-      <Link href={item.route}>
+      <Link href={item.route === '/home' ? '/' : item.route}>
         <a
           className={
-            route === item.route ? 'text-primary font-semibold' : 'text-gray-80'
+            isRoute(item.route, route)
+              ? 'text-primary font-semibold'
+              : 'text-gray-80'
           }
           onClick={toggleMenuOpen}
           tabIndex={!isMenuOpen ? -1 : 0}

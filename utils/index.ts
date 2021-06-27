@@ -3,3 +3,8 @@ export function pad(num: number, size: number) {
 	while (index.length <= size) index = '0' + index;
 	return index;
 }
+
+export const isRoute = (path: string, route: string) => {
+	const isHome = route === '/' && path === '/home';
+	return isHome ? true : route.includes(path);
+};
