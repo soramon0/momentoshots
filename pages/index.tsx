@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { motion } from 'framer-motion';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -12,7 +13,10 @@ import Highlights from '@/components/home/Highlights';
 
 const HomePage: HomePageProps = ({ highlights, testimonials }) => {
   return (
-    <main className="space-y-36 sm:space-y-48 md:space-y-52">
+    <motion.main
+      className="space-y-36 sm:space-y-48 md:space-y-52"
+      exit={{ opacity: 0 }}
+    >
       <Head>
         <title>Momento Shots - Home</title>
       </Head>
@@ -21,7 +25,7 @@ const HomePage: HomePageProps = ({ highlights, testimonials }) => {
       <About />
       <Highlights highlights={highlights} />
       <Testimonials testimonials={testimonials} />
-    </main>
+    </motion.main>
   );
 };
 

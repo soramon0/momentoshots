@@ -1,6 +1,7 @@
 import type { FormEventHandler } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 import useForm from '@/lib/useForm';
 import { useCreateContact } from '@/graphql/mutation/contact';
@@ -27,7 +28,7 @@ function ContactPage() {
   };
 
   return (
-    <main>
+    <motion.main exit={{ opacity: 0 }}>
       <Head>
         <title>Momento Shots - Contact Us</title>
       </Head>
@@ -108,7 +109,7 @@ function ContactPage() {
           </div>
         </fieldset>
       </form>
-    </main>
+    </motion.main>
   );
 }
 
