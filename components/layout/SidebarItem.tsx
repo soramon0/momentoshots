@@ -25,7 +25,7 @@ const MenuItem: React.VFC<Props> = ({
       <Link href={item.route}>
         <a
           className={
-            route === item.route ? 'text-white font-semibold' : 'text-gray-50'
+            route === item.route ? 'text-primary font-semibold' : 'text-gray-80'
           }
           onClick={toggleMenuOpen}
           tabIndex={!isMenuOpen ? -1 : 0}

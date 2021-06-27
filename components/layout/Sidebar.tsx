@@ -25,7 +25,7 @@ const Sidebar: React.VFC<Props> = ({ isMenuOpen, toggleMenuOpen }) => {
       ref={containerRef}
     >
       <motion.div
-        className="fixed top-0 right-0 bottom-0 w-80 bg-primary"
+        className="fixed top-0 right-0 bottom-0 w-80 bg-white"
         variants={sidebar}
       />
       <SidebarItems

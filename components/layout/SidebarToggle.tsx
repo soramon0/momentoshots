@@ -13,7 +13,7 @@ const SidebarToggle: React.VFC<Props> = ({ toggle }) => (
       width="23"
       height="23"
       viewBox="0 0 23 23"
-      className="fill-current text-white"
+      className="fill-current text-primary"
       stroke="currentColor"
     >
       <Path
