@@ -6,7 +6,7 @@ import { navigation } from '@/components/layout/Navbar';
 import MenuItem, { menuItem } from '@/components/layout/SidebarItem';
 
 const SidebarItems = ({ isMenuOpen, toggleMenuOpen, route }) => (
-  <motion.ul variants={items} className="px-6 pt-16 absolute w-full h-screen">
+  <motion.ul variants={items} className="px-6 pt-16 fixed top-0 bottom-0">
     {navigation.map((item, i) => (
       <MenuItem
         toggleMenuOpen={toggleMenuOpen}

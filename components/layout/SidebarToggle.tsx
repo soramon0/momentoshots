@@ -7,7 +7,7 @@ interface Props {
 const SidebarToggle: React.VFC<Props> = ({ toggle }) => (
   <button
     onClick={toggle}
-    className="absolute top-4 right-3 w-12 h-12 flex items-center justify-center rounded-full bg-transparent focus:outline-none"
+    className="fixed top-4 right-3 w-12 h-12 flex items-center justify-center rounded-full bg-transparent focus:outline-none"
   >
     <svg
       width="23"
