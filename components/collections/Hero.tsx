@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-import { ICollection } from '@/types/pages/collection';
 import { fadeInDown, staggerLonger } from '@/lib/animate';
 import IconChevronDown from '@/components/icons/ChevronDown';
 
