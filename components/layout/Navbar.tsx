@@ -1,17 +1,11 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useCycle } from 'framer-motion';
+import { AnimateSharedLayout, useCycle } from 'framer-motion';
 
-import { isRoute } from '@/utils/index';
 import IconIG from '@/components/icons/IG';
 import Sidebar from '@/components/layout/Sidebar';
-
-export const navigation: NavItem[] = [
-  { route: '/home', text: 'Home' },
-  { route: '/collections', text: 'Collections' },
-  { route: '/contact', text: 'Contact' },
-];
+import NavbarItems from '@/components/layout/NavbarItems';
 
 function Navbar() {
   const { route } = useRouter();
@@ -29,25 +23,8 @@ function Navbar() {
         </div>
 
         <div className="hidden md:w-3/5 md:flex md:justify-between">
-          <div className="space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.route}
-                href={item.route === '/home' ? '/' : item.route}
-              >
-                <a
-                  className={`text-lg font-semibold relative overflow-hidden outline-none hover:text-primary focus:text-primary focus:ring-1 focus:ring-primary focus:ring-offset-2 focus:ring-offset-green-300 ${
-                    isRoute(item.route, route)
-                      ? 'text-primary'
-                      : 'text-gray-900'
-                  }`}
-                  tabIndex={isMenuOpen ? -1 : 0}
-                >
-                  {item.text}
-                </a>
-              </Link>
-            ))}
-          </div>
+          <NavbarItems isMenuOpen={isMenuOpen} />
+
           <div className="space-x-4 flex items-center">
             <Link href="https://www.instagram.com/momento_shots/">
               <a
@@ -74,8 +51,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-export type NavItem = {
-  route: string;
-  text: string;
-};

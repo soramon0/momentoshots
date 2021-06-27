@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 
-import { navigation } from '@/components/layout/Navbar';
+import { navigation } from '@/components/layout/NavbarItems';
 import MenuItem, { menuItem } from '@/components/layout/SidebarItem';
 
 interface Props {
