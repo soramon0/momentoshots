@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 import { isRoute } from '@/utils/index';
-import { NavItem } from '@/components/layout/Navbar';
+import { NavItem } from '@/components/layout/NavbarItems';
 
 interface Props {
   isMenuOpen: boolean;
