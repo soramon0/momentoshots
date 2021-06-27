@@ -1,14 +1,12 @@
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-import { AnimateSharedLayout, useCycle } from 'framer-motion';
+import { useCycle } from 'framer-motion';
 
 import IconIG from '@/components/icons/IG';
 import Sidebar from '@/components/layout/Sidebar';
 import NavbarItems from '@/components/layout/NavbarItems';
 
 function Navbar() {
-  const { route } = useRouter();
   const [isMenuOpen, toggleMenuOpen] = useCycle(false, true);
 
   return (
