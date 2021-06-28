@@ -11,7 +11,7 @@ interface Props {
   item: NavItem;
 }
 
-const MenuItem: React.VFC<Props> = ({
+const SidenarItem: React.VFC<Props> = ({
   isMenuOpen,
   toggleMenuOpen,
   route,
@@ -42,7 +42,7 @@ const MenuItem: React.VFC<Props> = ({
   );
 };
 
-export default MenuItem;
+export default SidenarItem;
 
 export const menuItem = {
   open: {

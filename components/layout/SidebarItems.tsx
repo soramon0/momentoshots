@@ -17,7 +17,10 @@ const SidebarItems: React.VFC<Props> = ({
   route,
 }) => {
   return (
-    <motion.ul variants={items} className="px-6 pt-16 fixed top-0 bottom-0">
+    <motion.ul
+      variants={items}
+      className="px-6 pt-16 w-80 fixed top-0 bottom-0"
+    >
       {navigation.map((item, i) => (
         <MenuItem
           toggleMenuOpen={toggleMenuOpen}
@@ -28,7 +31,7 @@ const SidebarItems: React.VFC<Props> = ({
         />
       ))}
       <motion.li
-        className="absolute left-0 right-0 bottom-0 px-8 py-4"
+        className="px-8 py-4 absolute left-0 right-0 bottom-0 text-center"
         variants={menuItem}
       >
         <Link href="/">
@@ -49,9 +52,11 @@ export default SidebarItems;
 
 const items: Variants = {
   open: {
+    visibility: 'visible',
     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
   },
   closed: {
+    visibility: 'hidden',
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
 };

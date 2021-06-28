@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import { HomePageProps } from 'types/pages/home';
+import { HomePageProps } from '@/types/pages/home';
 import { getHomePageData } from '@/graphql/query/homepage';
 import Introduction from '@/components/home/Introduction';
 import About from '@/components/home/About';
