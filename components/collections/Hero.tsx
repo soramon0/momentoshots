@@ -23,7 +23,7 @@ const Hero: React.VFC<Props> = (props) => {
           {props.name}
         </motion.h1>
         <motion.p
-          className="px-4 mx-auto mt-4 text-xl text-gray-500 text-center sm:w-2/3"
+          className="px-4 mx-auto my-4 text-gray-500 text-center sm:text-xl sm:w-2/3"
           variants={fadeInDown}
         >
           {props.description}
