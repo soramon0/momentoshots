@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion';
 
-import Navbar from './Navbar';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 const Page: React.FC = ({ children }) => {
   return (
@@ -8,6 +9,7 @@ const Page: React.FC = ({ children }) => {
       <div className="max-w-screen-xl mx-auto">
         <Navbar />
         {children}
+        <Footer />
       </div>
     </AnimatePresence>
   );
