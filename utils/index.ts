@@ -8,3 +8,7 @@ export const isRoute = (path: string, route: string) => {
   const isHome = route === '/' && path === '/home';
   return isHome ? true : route.includes(path);
 };
+
+export function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ');
+}

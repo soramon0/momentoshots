@@ -1,5 +1,7 @@
-import { ICollection } from '@/types/pages/collection';
 import Image from 'next/image';
+
+import { ICollection } from '@/types/pages/collection';
+import { classNames } from '@/utils/index';
 
 interface Props {
   items: ICollection['items'];
@@ -14,9 +16,10 @@ const Gallery: React.VFC<Props> = ({ items, collectionName }) => {
     >
       {items.map((item, i) => (
         <div
-          className={`relative w-full min-h-full h-[600px] md:h-[450px] ${
+          className={classNames(
+            'relative w-full min-h-full h-[600px] md:h-[450px] lg:h-[500px]',
             i % 2 !== 0 ? 'row-span-3' : 'row-span-2'
-          }`}
+          )}
           key={item.id}
         >
           <Image
