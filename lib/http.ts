@@ -1,8 +1,7 @@
 import { ICollectionPaths } from "@/types/pages/collection"
-import { getApiEndpoint } from "@/utils/env"
 import { useEffect, useState } from "react"
 
-const basePath = getApiEndpoint()
+const basePath = '/api'
 
 export const useCollectionPaths = () => {
 	const [paths, setPaths] = useState<ICollectionPaths>([])

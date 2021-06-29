@@ -12,9 +12,3 @@ export function getGqlEndpoint() {
   const env = process.env.NEXT_PUBLIC_GQL_URL;
   return checkEnv(env, 'NEXT_PUBLIC_GQL_URL');
 }
-
-export function getApiEndpoint() {
-  const env = process.env.NEXT_PUBLIC_VERCEL_URL;
-  return checkEnv(env, 'NEXT_PUBLIC_VERCEL_URL');
-}
-
