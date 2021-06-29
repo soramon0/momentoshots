@@ -28,7 +28,7 @@ function ContactPage() {
   };
 
   return (
-    <motion.main exit={{ opacity: 0 }}>
+    <motion.main className="mb-12" exit={{ opacity: 0 }}>
       <Head>
         <title>Momento Shots - Contact Us</title>
       </Head>

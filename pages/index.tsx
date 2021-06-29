@@ -14,7 +14,7 @@ import Highlights from '@/components/home/Highlights';
 const HomePage: HomePageProps = ({ highlights, testimonials }) => {
   return (
     <motion.main
-      className="space-y-36 sm:space-y-48 md:space-y-52"
+      className="mb-12 space-y-36 sm:space-y-48 md:space-y-52"
       exit={{ opacity: 0 }}
     >
       <Head>
