@@ -28,7 +28,7 @@ const Testimonial: React.VFC<Props> = ({ testimonial: t }) => {
           <div className="space-x-2">
             {keywords.map((keyword) => (
               <span
-                className="px-4 py-1 text-sm capitalize rounded-md text-white bg-primary"
+                className="px-4 py-1 text-sm capitalize rounded-md font-semibold text-gray-700 bg-gray-200"
                 key={keyword}
               >
                 {keyword}
