@@ -23,7 +23,6 @@ const CTA = () => {
             alt="owner holding a camera"
             layout="fill"
             objectFit="cover"
-            placeholder="blur"
           />
         </div>
       </div>
