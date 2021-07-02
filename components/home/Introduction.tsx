@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import ownerPortrait from '@/images/photographer-1.jpg';
 import Thumbnail from '@/components/shared/Thumbnail';
 
@@ -12,9 +14,11 @@ function Introduction() {
           <p className="mt-4 text-xl font-body text-gray-500 xl:mt-0 md:text-2xl">
             Outdoor Photographer based out of Marrakech, Morocco.
           </p>
-          <button className="mt-6 py-3 px-6 font-display text-gray-50 bg-primary transition-colors hover:bg-green-300 hover:text-green-800 rounded-md focus:outline-none focus:bg-green-300 focus:text-gray-50">
-            Book a Session
-          </button>
+          <Link href="/contact">
+            <a className="inline-block w-64 mt-6 py-3 px-6 text-center font-display text-white bg-secondary transition-colors hover:bg-gray-800 hover:text-gray-200 rounded-md focus:outline-none focus:bg-gray-800 focus:text-gray-200">
+              Book a Session
+            </a>
+          </Link>
         </div>
       </div>
       <div className="md:flex-1">

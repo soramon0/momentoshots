@@ -10,11 +10,12 @@ import Introduction from '@/components/home/Introduction';
 import About from '@/components/home/About';
 import Testimonials from '@/components/home/Testimonials';
 import Highlights from '@/components/home/Highlights';
+import CTA from '@/components/home/CTA';
 
 const HomePage: HomePageProps = ({ highlights, testimonials }) => {
   return (
     <motion.main
-      className="mb-12 space-y-36 sm:space-y-48 md:space-y-52"
+      className="mb-12 space-y-36 sm:space-y-48"
       exit={{ opacity: 0 }}
     >
       <Head>
@@ -25,6 +26,7 @@ const HomePage: HomePageProps = ({ highlights, testimonials }) => {
       <About />
       <Highlights highlights={highlights} />
       <Testimonials testimonials={testimonials} />
+      <CTA />
     </motion.main>
   );
 };
