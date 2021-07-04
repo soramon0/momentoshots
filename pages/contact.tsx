@@ -1,114 +1,148 @@
-import type { FormEventHandler } from 'react';
+import { FormEventHandler, useEffect, useState } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+import { useCreateContact } from '@/lib/http';
 import useForm from '@/lib/useForm';
-import { useCreateContact } from '@/graphql/mutation/contact';
-import Notifier from '@/components/Notifier';
+import IconPhone from '@/components/icons/Phone';
+import IconMail from '@/components/icons/Mail';
+import IconLocation from '@/components/icons/Location';
+import Input from '@/components/shared/Input';
+import TextAria from '@/components/shared/TextAria';
+import Notifier from '@/components/shared/Notifier';
 
 function ContactPage() {
-  const { inputs, onChange, clearForm } = useForm({
+  const [showNotifier, setShowNotifier] = useState(false);
+  const { inputs, onChange, resetFrom } = useForm({
     name: '',
     email: '',
     phone: '',
     message: '',
   });
-  const [createContact, { loading, error }] = useCreateContact(() => ({
-    variables: inputs,
-  }));
+  const { createContact, errors, loading, status } = useCreateContact(inputs);
 
   const sendContactMessage: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-
-    try {
-      await createContact();
-      clearForm();
-    } catch {}
+    await createContact();
   };
+
+  useEffect(() => {
+    if (status === 200) {
+      setShowNotifier(true);
+      resetFrom();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status]);
 
   return (
     <motion.main className="mb-12" exit={{ opacity: 0 }}>
       <Head>
         <title>Momento Shots - Contact Us</title>
       </Head>
-      <Notifier error={error} type={error ? 'Error' : 'Success'} />
 
-      <div className="text-center p-4">
-        <Link href="/">Back Home</Link>
-      </div>
+      <Notifier
+        message="Yay! you did it. Will Reach back to you soon."
+        show={showNotifier}
+        toggller={setShowNotifier}
+      />
 
-      <form
-        method="post"
-        className="max-w-4xl mx-auto m-4"
-        onSubmit={sendContactMessage}
-      >
-        <fieldset
-          className="bg-gray-50 shadow-sm p-4 space-y-4"
-          disabled={loading}
-          aria-busy={loading}
+      <section className="px-4 mt-8 space-y-8 md:px-12 md:mt-12 md:space-y-0 md:grid md:grid-cols-2 md:gap-8">
+        <div>
+          <span className="text-lg text-secondary sm:text-xl lg:text-2xl">
+            Get in touch
+          </span>
+          <h1 className="mt-4 text-2xl font-display capitalize text-secondary sm:text-3xl lg:text-4xl">
+            Schudle a shooting session
+          </h1>
+
+          <ul className="mt-8 md:mt-16 space-y-6">
+            <li className="flex space-x-2">
+              <IconPhone />
+              <span
+                className="font-semibold text-gray-700 tracking-wide"
+                aria-label="phone number: 052615615"
+              >
+                052615615
+              </span>
+            </li>
+            <li className="flex space-x-2">
+              <IconMail />
+              <span
+                className="font-semibold text-gray-700 tracking-wide"
+                aria-label="phone number: 052615615"
+              >
+                oumaima@gmail.com
+              </span>
+            </li>
+            <li className="flex space-x-2">
+              <IconLocation />
+              <span
+                className="font-semibold text-gray-700 tracking-wide"
+                aria-label="phone number: 052615615"
+              >
+                Marrakech, Morocco
+              </span>
+            </li>
+          </ul>
+        </div>
+        <form
+          method="post"
+          className="p-8 max-w-4xl w-full shadow rounded-2xl md:p-8"
+          onSubmit={sendContactMessage}
         >
-          <div className="sm:flex sm:space-x-6">
-            <div className="flex-1 space-y-2">
-              <label htmlFor="name" className="block">
-                Name
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={inputs.name}
-                  onChange={onChange}
-                  className="block w-full p-2 rounded-md"
-                />
-              </label>
-              <label htmlFor="name" className="block">
-                Email
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={inputs.email}
-                  onChange={onChange}
-                  className="block w-full p-2 rounded-md"
-                />
-              </label>
-              <label htmlFor="name" className="block">
-                Phone
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Your Phone"
-                  value={inputs.phone}
-                  onChange={onChange}
-                  className="block w-full p-2 rounded-md"
-                />
-              </label>
+          <fieldset
+            disabled={loading}
+            aria-busy={loading}
+            className="space-y-4"
+          >
+            <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-4">
+              <Input
+                name="name"
+                label="Full Name"
+                placeholder="Your Full Name"
+                value={inputs.name}
+                onChange={onChange}
+                error={errors?.name}
+              />
+              <Input
+                name="phone"
+                label="Phone"
+                placeholder="Your Phone"
+                value={inputs.phone}
+                onChange={onChange}
+                error={errors?.phone}
+              />
             </div>
 
-            <div className="flex-1">
-              <label htmlFor="name">
-                Message
-                <textarea
-                  rows={7}
-                  name="message"
-                  placeholder="Your Message"
-                  value={inputs.message}
-                  onChange={onChange}
-                  className="block w-full p-2 rounded-md"
-                />
-              </label>
+            <div>
+              <Input
+                name="email"
+                type="email"
+                label="Email"
+                placeholder="Your Email"
+                value={inputs.email}
+                onChange={onChange}
+                error={errors?.email}
+              />
             </div>
-          </div>
-          <div className="text-center">
-            <button
-              type="submit"
-              className="bg-indigo-600 text-white font-semibold tracking-wide py-2 px-6 rounded-md"
-            >
-              Send Message
+            <div className="col-span-2 row-span-2">
+              <TextAria
+                rows={7}
+                name="message"
+                label="Message"
+                value={inputs.message}
+                onChange={onChange}
+                error={errors?.message}
+                placeholder="Your Message"
+              />
+            </div>
+
+            <button className="w-52 py-3 px-6 text-center font-display text-white bg-secondary transition-colors hover:bg-gray-800 hover:text-gray-200 rounded-md focus:outline-none focus:bg-gray-800 focus:text-gray-200">
+              Book
             </button>
-          </div>
-        </fieldset>
-      </form>
+          </fieldset>
+        </form>
+      </section>
     </motion.main>
   );
 }

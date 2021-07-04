@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useCycle } from 'framer-motion';
 
 import IconIG from '@/components/icons/IG';
+import IconPhone from '@/components/icons/Phone';
 import Sidebar from '@/components/layout/Sidebar';
 import NavbarItems from '@/components/layout/NavbarItems';
 
@@ -30,15 +31,18 @@ function Navbar() {
                 className="outline-none focus:ring-1 focus:ring-offset-2 focus:ring-offset-primary focus:ring-primary"
                 aria-label="instagram account"
               >
-                <IconIG className="w-6 h-6 transition-colors duration-500 hover:text-primary" />
+                <IconIG className="w-6 h-6 text-gray-600 transition-colors duration-500 hover:text-primary" />
               </a>
             </Link>
-            <span
-              className="font-semibold"
-              aria-label="phone number: 052615615"
-            >
-              052615615
-            </span>
+            <div className="flex space-x-2">
+              <IconPhone />
+              <span
+                className="font-semibold text-gray-600 tracking-wide"
+                aria-label="phone number: 052615615"
+              >
+                052615615
+              </span>
+            </div>
           </div>
         </div>
 

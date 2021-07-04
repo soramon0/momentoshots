@@ -12,3 +12,7 @@ export const isRoute = (path: string, route: string) => {
 export function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
+
+export function isEmpty(obj: object) {
+  return obj && Object.keys(obj).length === 0;
+}

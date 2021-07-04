@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 
-function useForm<T>(initial: T = {} as T) {
+function useForm<T>(initial = {} as T) {
   const [inputs, setInputs] = useState(initial);
 
   function onChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
