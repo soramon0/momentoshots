@@ -36,7 +36,6 @@ type Error = {
 export const useCreateContact = (payload: Payload) => {
 	const [loading, setLoading] = useState(false)
 	const [errors, setErrors] = useState<Error | null>(null)
-	const [status, setStatus] = useState(-1)
 
 	const createContact = async (payloadData = payload) => {
 		setLoading(true);
@@ -48,12 +47,13 @@ export const useCreateContact = (payload: Payload) => {
 				'Content-Type': 'application/json'
 			},
 		});
-		const { data, error } = await blob.json();
+		const { data } = await blob.json();
 
-		setStatus(blob.status)
-		setErrors(error ? data.errors : {})
+		setErrors(data?.errors ?? {})
 		setLoading(false);
+
+		return { errors: data?.errors }
 	}
 
-	return { loading, errors, status, createContact }
+	return { loading, errors, createContact }
 }

@@ -1,4 +1,4 @@
-import { FormEventHandler, useEffect, useState } from 'react';
+import { FormEventHandler, useState } from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 
@@ -19,20 +19,17 @@ function ContactPage() {
     phone: '',
     message: '',
   });
-  const { createContact, errors, loading, status } = useCreateContact(inputs);
+  const { createContact, errors, loading } = useCreateContact(inputs);
 
   const sendContactMessage: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    await createContact();
-  };
+    const { errors } = await createContact();
 
-  useEffect(() => {
-    if (status === 200) {
-      setShowNotifier(true);
+    if (!errors) {
       resetFrom();
+      setShowNotifier(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [status]);
+  };
 
   return (
     <motion.main className="mb-12" exit={{ opacity: 0 }}>
@@ -43,7 +40,7 @@ function ContactPage() {
       <Notifier
         message="Yay! you did it. Will Reach back to you soon."
         show={showNotifier}
-        toggller={setShowNotifier}
+        toggler={setShowNotifier}
       />
 
       <section className="px-4 mt-8 space-y-8 md:px-12 md:mt-12 md:space-y-0 md:grid md:grid-cols-2 md:gap-8">
