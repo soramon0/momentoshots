@@ -4,12 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface Props {
   message: string;
   show: boolean;
-  toggller: Dispatch<SetStateAction<boolean>>;
+  toggler: Dispatch<SetStateAction<boolean>>;
 }
 
-const Notifier: React.VFC<Props> = ({ message, show, toggller }) => {
+const Notifier: React.VFC<Props> = ({ message, show, toggler }) => {
   const hideNotifier = () => {
-    toggller(false);
+    toggler(false);
   };
 
   return (
