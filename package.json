@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "graphql-codegen && next build",
+    "build": "sanity-codegen && next build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
     "lint": "next lint",
     "format": "prettier --write .",
     "test-all": "yarn lint && yarn type-check",
-    "generate": "NEXT_PUBLIC_GQL_URL=http://localhost:1337/graphql graphql-codegen"
+    "generate": "sanity-codegen"
   },
   "dependencies": {
     "@apollo/client": "^3.3.14",
@@ -27,6 +27,9 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
     "@graphql-codegen/cli": "^1.21.3",
     "@graphql-codegen/typescript": "^1.21.1",
     "@graphql-codegen/typescript-apollo-client-helpers": "^1.1.4",
@@ -44,7 +47,8 @@
     "eslint-config-next": "^11.0.0",
     "eslint-config-prettier": "^8.3.0",
     "postcss": "^8.2.6",
-    "prettier": "^2.3.1",
+    "prettier": "^2.4.1",
+    "sanity-codegen": "^0.9.6",
     "tailwindcss": "2.2.17",
     "typescript": "^4.3.3"
   }

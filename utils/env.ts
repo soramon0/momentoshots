@@ -17,3 +17,13 @@ export function getBackendEndpoint() {
   const env = process.env.NEXT_PUBLIC_BACKEND_URL;
   return checkEnv(env, 'NEXT_PUBLIC_BACKEND_URL');
 }
+
+export function getSanityProjectId() {
+  const env = process.env.SANITY_PROJECT_ID;
+  return checkEnv(env, 'SANITY_PROJECT_ID');
+}
+
+export function getSanityDataset() {
+  const env = process.env.SANITY_DATASET;
+  return checkEnv(env, 'SANITY_DATASET');
+}
