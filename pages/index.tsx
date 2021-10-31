@@ -11,8 +11,9 @@ import About from '@/components/home/About';
 import Testimonials from '@/components/home/Testimonials';
 import Highlights from '@/components/home/Highlights';
 import CTA from '@/components/home/CTA';
+import { getFeaturedCollectionItems } from '@/sanity/query/collectionItem';
 
-const HomePage: HomePageProps = ({ highlights, testimonials }) => {
+const HomePage: HomePageProps = ({ testimonials, featuredItems }) => {
   return (
     <motion.main
       className="mb-12 space-y-36 sm:space-y-48"
@@ -24,7 +25,7 @@ const HomePage: HomePageProps = ({ highlights, testimonials }) => {
 
       <Introduction />
       <About />
-      <Highlights highlights={highlights} />
+      <Highlights featuredItems={featuredItems} />
       <Testimonials testimonials={testimonials} />
       <CTA />
     </motion.main>
@@ -34,12 +35,13 @@ const HomePage: HomePageProps = ({ highlights, testimonials }) => {
 export default HomePage;
 
 export const getStaticProps: GetStaticProps = async () => {
+  const featuredItems = await getFeaturedCollectionItems();
   const { data } = await getHomePageData();
 
   return {
     props: {
-      highlights: data.highlights,
       testimonials: data.testimonials,
+      featuredItems,
     },
     revalidate: 60,
   };

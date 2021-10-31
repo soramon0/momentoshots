@@ -1,13 +1,13 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
-import { IHighlights } from 'types/pages/home';
+import { CollectionItem } from '@/sanity/schemaTypes';
+import AppImage from '@/components/shared/AppImage';
 
 interface Props {
-  highlights: IHighlights;
+  featuredItems: CollectionItem[];
 }
 
-const Highlights: React.VFC<Props> = ({ highlights }) => {
+const Highlights: React.VFC<Props> = ({ featuredItems }) => {
   return (
     <section className="py-24 px-4 space-y-14 text-center bg-secondary sm:space-y-24 md:px-8">
       <h2 className="text-gray-200 text-3xl font-display sm:text-4xl sm:leading-normal md:text-5xl xl:leading-loose">
@@ -15,19 +15,14 @@ const Highlights: React.VFC<Props> = ({ highlights }) => {
       </h2>
 
       <div className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:justify-items-center sm:pt-16 md:gap-y-16 md:pt-48">
-        {highlights.map((item, i) => (
+        {featuredItems.map((item, i) => (
           <div
             className={`relative w-full h-[600px] lg:w-[400px] ${
               i % 2 == 0 ? 'sm:-mt-16 md:-mt-48' : ''
             }`}
-            key={item.id}
+            key={item._id}
           >
-            <Image
-              src={item.image.url}
-              alt={item.image.alternativeText}
-              layout="fill"
-              objectFit="cover"
-            />
+            <AppImage image={item.image} />
           </div>
         ))}
       </div>
