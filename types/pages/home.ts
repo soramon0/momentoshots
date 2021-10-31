@@ -1,12 +1,10 @@
-import type * as Types from '@/graphql/generated';
-import { CollectionItem } from '@/sanity/schemaTypes';
+import { FC } from 'react';
 
-export type IHighlights = Types.GetHomePageDataQuery['items'];
-export type ITestimonials =
-  Types.GetHomePageDataQuery['homePage']['testimonials'];
+import { CollectionItem, Review } from '@/sanity/schemaTypes';
 
-export type HomePageProps = React.FC<{
-  highlights: IHighlights;
-  testimonials: ITestimonials;
+type HomePageProps = FC<{
+  reviews: Review[];
   featuredItems: CollectionItem[];
 }>;
+
+export default HomePageProps;
