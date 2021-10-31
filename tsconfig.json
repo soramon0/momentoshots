@@ -20,7 +20,8 @@
       "@/utils/*": ["utils/*"],
       "@/graphql/*": ["graphql/*"],
       "@/images/*": ["public/images/*"],
-      "@/types/*": ["types/*"]
+      "@/types/*": ["types/*"],
+      "@/sanity/*": ["sanity/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
