@@ -11,8 +11,14 @@ const Testimonial: VFC<Props> = ({ review }) => {
   return (
     <article className="my-4 mr-4 min-h-[13rem] p-4 rounded-lg shadow-md">
       <header className="flex space-x-4">
-        <div className="w-[65px] h-[65px] p-0.5 rounded-md border border-gray-200">
-          <AppImage className="rounded-md max-w-full" image={review.avatar} />
+        <div className="w-16 h-16 p-0.5 rounded-md border border-gray-200">
+          <AppImage
+            className="rounded-md max-w-full"
+            width="64"
+            height="64"
+            objectFit="cover"
+            image={review.avatar}
+          />
         </div>
 
         <div className="space-y-2">
