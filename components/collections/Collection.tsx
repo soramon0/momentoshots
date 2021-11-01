@@ -1,19 +1,20 @@
-import Image from 'next/image';
+import type { VFC } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+import type { Collection as ICollection } from '@/sanity/schemaTypes';
 import { pad } from '@/utils/index';
-import { ICollections } from '@/types/pages/collections';
 import { fadeInUp } from '@/lib/animate';
 import IconExternalLink from '@/components/icons/ExternalLink';
+import AppImage from '@/components/shared/AppImage';
 
 interface Props {
-  collection: ICollections[0];
+  collection: ICollection;
   index: number;
 }
 
-const Collection: React.VFC<Props> = ({ collection, index }) => {
-  const link = `/collections/${collection.slug}`;
+const Collection: VFC<Props> = ({ collection, index }) => {
+  const link = `/collections/${collection.slug.current}`;
   const linkLabel = `${collection.name} collection`;
 
   return (
@@ -26,9 +27,8 @@ const Collection: React.VFC<Props> = ({ collection, index }) => {
       <div className="h-56 overflow-hidden relative sm:h-60 lg:w-1/2">
         <Link href={link} passHref>
           <a aria-label={linkLabel}>
-            <Image
-              src={collection.headerImage.url}
-              alt={collection.headerImage.alternativeText}
+            <AppImage
+              image={collection.main_image}
               layout="fill"
               objectFit="cover"
             />

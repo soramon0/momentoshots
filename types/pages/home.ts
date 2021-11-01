@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
-import { CollectionItem, Review } from '@/sanity/schemaTypes';
+import type { CollectionItem, Review } from '@/sanity/schemaTypes';
 
 type HomePageProps = FC<{
   reviews: Review[];

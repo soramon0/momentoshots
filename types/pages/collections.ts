@@ -1,7 +1,7 @@
-import type * as Types from '@/graphql/generated';
+import type { FC } from 'react';
 
-export type ICollections = Types.GetCollectionsQuery['collections'];
+import type { Collection } from '@/sanity/schemaTypes';
 
-export type CollectionsPageProps = React.FC<{
-  collections: ICollections;
+export type CollectionsPageProps = FC<{
+  collections: Collection[];
 }>;

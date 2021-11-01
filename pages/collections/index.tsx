@@ -3,8 +3,8 @@ import Head from 'next/head';
 import { motion } from 'framer-motion';
 
 import { CollectionsPageProps } from '@/types/pages/collections';
-import { getCollections } from '@/graphql/query/collection';
 import Collections from '@/components/collections/Collections';
+import { getCollections } from '@/sanity/query/collection';
 
 const CollectionsPage: CollectionsPageProps = ({ collections }) => {
   return (
@@ -30,11 +30,11 @@ const CollectionsPage: CollectionsPageProps = ({ collections }) => {
 export default CollectionsPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await getCollections();
+  const collections = await getCollections();
 
   return {
     props: {
-      collections: data,
+      collections,
     },
     revalidate: 60,
   };
